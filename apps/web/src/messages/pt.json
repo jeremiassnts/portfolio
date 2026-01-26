@@ -18,7 +18,18 @@
     "viewAll": "Ver Todos os Projetos",
     "viewProject": "Ver Projeto",
     "liveDemo": "Demo Ao Vivo",
-    "sourceCode": "Código Fonte"
+    "sourceCode": "Código Fonte",
+    "backToProjects": "Voltar aos Projetos",
+    "backToAllProjects": "Voltar a Todos os Projetos",
+    "theProblem": "O Problema",
+    "theSolution": "A Solução",
+    "theOutcome": "O Resultado",
+    "techStack": "Stack Tecnológico",
+    "metrics": {
+      "users": "Usuários",
+      "performance": "Performance",
+      "impact": "Impacto"
+    }
   },
   "about": {
     "title": "Sobre Mim",

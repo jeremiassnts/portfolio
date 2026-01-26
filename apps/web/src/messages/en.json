@@ -18,7 +18,18 @@
     "viewAll": "View All Projects",
     "viewProject": "View Project",
     "liveDemo": "Live Demo",
-    "sourceCode": "Source Code"
+    "sourceCode": "Source Code",
+    "backToProjects": "Back to Projects",
+    "backToAllProjects": "Back to All Projects",
+    "theProblem": "The Problem",
+    "theSolution": "The Solution",
+    "theOutcome": "The Outcome",
+    "techStack": "Tech Stack",
+    "metrics": {
+      "users": "Users",
+      "performance": "Performance",
+      "impact": "Impact"
+    }
   },
   "about": {
     "title": "About Me",
