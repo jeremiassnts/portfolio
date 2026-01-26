@@ -1,11 +1,13 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { ProjectCard } from '@/components/project/project-card';
-import { projects } from '@/data';
+import { getProjects } from '@/data/projects';
 
 export function ProjectsSection() {
   const t = useTranslations('projects');
+  const locale = useLocale() as 'en' | 'pt';
+  const projects = getProjects(locale);
 
   // Show only featured projects (first 3)
   const featuredProjects = projects.filter((p) => p.featured).slice(0, 3);

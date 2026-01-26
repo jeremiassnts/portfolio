@@ -14,8 +14,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 1,
   }));
 
-  // Project detail routes
-  const projectPages = projects.flatMap((project) =>
+  // Project detail routes (use English slugs as they're the same)
+  const projectPages = projects.en.flatMap((project) =>
     locales.map((locale) => ({
       url: `${baseUrl}/${locale}/projects/${project.slug}`,
       lastModified: new Date(),

@@ -2,21 +2,22 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
-import { projects } from '@/data/projects';
+import { getProjects } from '@/data/projects';
 import { Button } from '@/components/ui/button';
 import { ProjectTechStack } from '@/components/project/project-tech-stack';
 import { ArrowLeft, ExternalLink, Github } from 'lucide-react';
 import type { Metadata } from 'next';
 
 interface ProjectPageProps {
-  params: {
+  params: Promise<{
     locale: string;
     slug: string;
-  };
+  }>;
 }
 
-// Generate static params for all projects
+// Generate static params for all projects (use English slugs as they're consistent)
 export async function generateStaticParams() {
+  const projects = getProjects('en');
   return projects.map((project) => ({
     slug: project.slug,
   }));
@@ -26,7 +27,9 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: ProjectPageProps): Promise<Metadata> {
-  const project = projects.find((p) => p.slug === params.slug);
+  const { slug, locale } = await params;
+  const projects = getProjects(locale as 'en' | 'pt');
+  const project = projects.find((p) => p.slug === slug);
 
   if (!project) {
     return {
@@ -34,7 +37,7 @@ export async function generateMetadata({
     };
   }
 
-  const t = await getTranslations({ locale: params.locale });
+  const t = await getTranslations({ locale });
   const heroImage = project.images.find((img) => img.type === 'hero');
 
   return {
@@ -65,20 +68,22 @@ export async function generateMetadata({
 }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
-  const project = projects.find((p) => p.slug === params.slug);
+  const { slug, locale } = await params;
+  const projects = getProjects(locale as 'en' | 'pt');
+  const project = projects.find((p) => p.slug === slug);
 
   if (!project) {
     notFound();
   }
 
-  const t = await getTranslations({ locale: params.locale, namespace: 'projects' });
+  const t = await getTranslations({ locale, namespace: 'projects' });
   const heroImage = project.images.find((img) => img.type === 'hero');
 
   return (
     <div className="min-h-screen">
       {/* Back button */}
       <div className="container mx-auto px-4 py-8">
-        <Link href={`/${params.locale}#projects`}>
+        <Link href={`/${locale}#projects`}>
           <Button variant="ghost" size="sm" className="gap-2">
             <ArrowLeft className="h-4 w-4" />
             {t('backToProjects')}
@@ -89,13 +94,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       {/* Hero Image */}
       {heroImage && (
         <div className="relative w-full h-[400px] mb-12 bg-muted">
-          <Image
-            src={heroImage.src}
-            alt={heroImage.alt}
-            fill
-            className="object-cover"
-            priority
-          />
+          <Image src={heroImage.src} alt={heroImage.alt} fill className="object-cover" priority />
         </div>
       )}
 
@@ -110,19 +109,13 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 {project.year}
               </span>
             </div>
-            <p className="text-xl text-muted-foreground">
-              {project.shortDescription}
-            </p>
+            <p className="text-xl text-muted-foreground">{project.shortDescription}</p>
           </div>
 
           {/* Action Buttons */}
           <div className="flex gap-4 mb-12">
             {project.liveUrl && (
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                 <Button size="lg" className="gap-2">
                   <ExternalLink className="h-4 w-4" />
                   {t('liveDemo')}
@@ -130,11 +123,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               </a>
             )}
             {project.githubUrl && (
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" size="lg" className="gap-2">
                   <Github className="h-4 w-4" />
                   {t('sourceCode')}
@@ -147,24 +136,18 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           <div className="space-y-8 mb-12">
             <section>
               <h2 className="text-2xl font-bold mb-4">{t('theProblem')}</h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                {project.problem}
-              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">{project.problem}</p>
             </section>
 
             <section>
               <h2 className="text-2xl font-bold mb-4">{t('theSolution')}</h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                {project.solution}
-              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">{project.solution}</p>
             </section>
 
             {project.outcome && (
               <section>
                 <h2 className="text-2xl font-bold mb-4">{t('theOutcome')}</h2>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  {project.outcome}
-                </p>
+                <p className="text-lg text-muted-foreground leading-relaxed">{project.outcome}</p>
               </section>
             )}
           </div>
@@ -174,27 +157,19 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 p-6 bg-muted/50 rounded-lg">
               {project.metrics.users && (
                 <div>
-                  <p className="text-sm text-muted-foreground mb-1">
-                    {t('metrics.users')}
-                  </p>
+                  <p className="text-sm text-muted-foreground mb-1">{t('metrics.users')}</p>
                   <p className="text-xl font-semibold">{project.metrics.users}</p>
                 </div>
               )}
               {project.metrics.performance && (
                 <div>
-                  <p className="text-sm text-muted-foreground mb-1">
-                    {t('metrics.performance')}
-                  </p>
-                  <p className="text-xl font-semibold">
-                    {project.metrics.performance}
-                  </p>
+                  <p className="text-sm text-muted-foreground mb-1">{t('metrics.performance')}</p>
+                  <p className="text-xl font-semibold">{project.metrics.performance}</p>
                 </div>
               )}
               {project.metrics.impact && (
                 <div>
-                  <p className="text-sm text-muted-foreground mb-1">
-                    {t('metrics.impact')}
-                  </p>
+                  <p className="text-sm text-muted-foreground mb-1">{t('metrics.impact')}</p>
                   <p className="text-xl font-semibold">{project.metrics.impact}</p>
                 </div>
               )}
@@ -209,7 +184,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
           {/* Back to Projects */}
           <div className="pt-8 border-t">
-            <Link href={`/${params.locale}#projects`}>
+            <Link href={`/${locale}#projects`}>
               <Button variant="outline" className="gap-2">
                 <ArrowLeft className="h-4 w-4" />
                 {t('backToAllProjects')}
