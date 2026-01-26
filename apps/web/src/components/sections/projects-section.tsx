@@ -2,26 +2,34 @@
 
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ExternalLink, Github } from 'lucide-react';
 import { projects } from '@/data';
 
 export function ProjectsSection() {
   const t = useTranslations('projects');
-  
+
   // Show only featured projects (first 3)
-  const featuredProjects = projects.filter(p => p.featured).slice(0, 3);
+  const featuredProjects = projects.filter((p) => p.featured).slice(0, 3);
 
   return (
     <section id="projects" className="container mx-auto px-4 py-20">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-          {t('title')}
-        </h2>
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">{t('title')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
           {featuredProjects.map((project) => (
-            <Card key={project.id} className="flex flex-col hover:shadow-lg transition-shadow">
+            <Card
+              key={project.id}
+              className="flex flex-col hover:shadow-lg transition-shadow rounded-sm"
+            >
               <CardHeader>
                 <div className="flex items-start justify-between gap-2 mb-2">
                   <CardTitle className="text-xl">{project.title}</CardTitle>
@@ -70,7 +78,7 @@ export function ProjectsSection() {
                     <Button
                       variant="outline"
                       size="sm"
-                      className="w-full"
+                      className="w-full rounded-sm cursor-pointer"
                     >
                       <Github className="mr-2 h-4 w-4" />
                       {t('sourceCode')}
@@ -84,10 +92,7 @@ export function ProjectsSection() {
                     rel="noopener noreferrer"
                     className="flex-1"
                   >
-                    <Button
-                      size="sm"
-                      className="w-full"
-                    >
+                    <Button size="sm" className="w-full rounded-sm cursor-pointer">
                       <ExternalLink className="mr-2 h-4 w-4" />
                       {t('liveDemo')}
                     </Button>

@@ -1,28 +1,33 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
+import { getMessages, setRequestLocale } from 'next-intl/server';
+import { routing } from '@/routing';
 
-import "../../index.css";
-import { Header } from "@/components/layout/header";
-import { Footer } from "@/components/layout/footer";
-import Providers from "@/components/providers";
+import '../../index.css';
+import { Header } from '@/components/layout/header';
+import { Footer } from '@/components/layout/footer';
+import Providers from '@/components/providers';
 
 const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+  variable: '--font-geist-sans',
+  subsets: ['latin'],
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  variable: '--font-geist-mono',
+  subsets: ['latin'],
 });
 
 export const metadata: Metadata = {
-  title: "portfolio",
-  description: "portfolio",
+  title: 'portfolio',
+  description: 'portfolio',
 };
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
 
 export default async function LocaleLayout({
   children,
@@ -32,7 +37,11 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>;
 }>) {
   const { locale } = await params;
-  const messages = await getMessages();
+  
+  // Enable static rendering
+  setRequestLocale(locale);
+  
+  const messages = await getMessages({ locale });
 
   return (
     <html lang={locale} suppressHydrationWarning>

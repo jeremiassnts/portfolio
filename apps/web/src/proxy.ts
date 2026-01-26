@@ -1,22 +1,8 @@
-import { NextRequest, NextResponse } from 'next/server';
+import createMiddleware from 'next-intl/middleware';
+import { routing } from '@/routing';
 
-const PUBLIC_FILE = /\.(.*)$/;
+export default createMiddleware(routing);
 
-export async function proxy(req: NextRequest) {
-  if (
-    req.nextUrl.pathname.startsWith('/_next') ||
-    req.nextUrl.pathname.includes('/api/') ||
-    PUBLIC_FILE.test(req.nextUrl.pathname)
-  ) {
-    return;
-  }
-
-  if (req.nextUrl.pathname === '/') {
-    const locale = req.cookies.get('NEXT_LOCALE')?.value || 'en';
-    return NextResponse.redirect(
-      new URL(`/${locale}${req.nextUrl.pathname}${req.nextUrl.search}`, req.url)
-    );
-  }
-
-  return NextResponse.next();
-}
+export const config = {
+  matcher: ['/((?!api|_next|_vercel|.*\\..*).*)'],
+};

@@ -13,12 +13,13 @@ export function Header() {
   return (
     <header className="border-b sticky top-0 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 z-50">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-        <div className="">
+        <div className="flex flex-row items-center gap-2 justify-start">
           <Image
             src={'/images/profile/profile_picture.webp'}
             alt={siteConfig.name}
-            width={100}
-            height={100}
+            width={30}
+            height={30}
+            className="rounded-full"
           />
           <Link
             href={'/' as any}

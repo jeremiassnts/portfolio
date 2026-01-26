@@ -29,20 +29,18 @@ export function ContactSection() {
       icon: Twitter,
       available: !!profile.social.twitter,
     },
-  ].filter(link => link.available);
+  ].filter((link) => link.available);
 
   return (
     <section id="contact" className="container mx-auto px-4 py-20 bg-muted/30">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-          {t('title')}
-        </h2>
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">{t('title')}</h2>
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
           {t('description')}
         </p>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Card>
+          <Card className="rounded-sm">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Mail className="h-5 w-5" />
@@ -54,10 +52,7 @@ export function ContactSection() {
             </CardHeader>
             <CardContent>
               <a href={`mailto:${profile.email}`} className="block">
-                <Button
-                  className="w-full"
-                  size="lg"
-                >
+                <Button className="w-full rounded-sm cursor-pointer" size="lg">
                   <Mail className="mr-2 h-4 w-4" />
                   {profile.email}
                 </Button>
@@ -65,30 +60,23 @@ export function ContactSection() {
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="rounded-sm">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <ExternalLink className="h-5 w-5" />
                 {t('social')}
               </CardTitle>
-              <CardDescription>
-                Connect with me on social platforms
-              </CardDescription>
+              <CardDescription>Connect with me on social platforms</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="flex flex-col gap-2">
                 {socialLinks.map((link) => {
                   const Icon = link.icon;
                   return (
-                    <a
-                      key={link.name}
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
+                    <a key={link.name} href={link.url} target="_blank" rel="noopener noreferrer">
                       <Button
                         variant="outline"
-                        className="w-full justify-start"
+                        className="w-full justify-start rounded-sm cursor-pointer"
                       >
                         <Icon className="mr-2 h-4 w-4" />
                         {link.name}

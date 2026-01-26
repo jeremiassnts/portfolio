@@ -20,14 +20,12 @@ export function HeroSection() {
         <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
           {t('title')}
         </h1>
-        <p className="text-xl md:text-2xl text-muted-foreground mb-8">
-          {t('subtitle')}
-        </p>
+        <p className="text-xl md:text-2xl text-muted-foreground mb-8">{t('subtitle')}</p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button
             size="lg"
             onClick={() => scrollToSection('projects')}
-            className="group"
+            className="group rounded-sm cursor-pointer"
           >
             {t('cta.projects')}
             <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -36,7 +34,7 @@ export function HeroSection() {
             size="lg"
             variant="outline"
             onClick={() => scrollToSection('contact')}
-            className="group"
+            className="group rounded-sm cursor-pointer"
           >
             <Mail className="mr-2 h-4 w-4" />
             {t('cta.contact')}

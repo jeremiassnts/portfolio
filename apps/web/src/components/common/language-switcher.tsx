@@ -21,6 +21,7 @@ export function LanguageSwitcher() {
         size="sm"
         onClick={() => switchLocale('en')}
         aria-label="Switch to English"
+        className="rounded-sm cursor-pointer"
       >
         EN
       </Button>
@@ -29,6 +30,7 @@ export function LanguageSwitcher() {
         size="sm"
         onClick={() => switchLocale('pt')}
         aria-label="Mudar para Português"
+        className="rounded-sm cursor-pointer"
       >
         PT
       </Button>
