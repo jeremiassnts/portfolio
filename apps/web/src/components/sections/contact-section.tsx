@@ -1,7 +1,7 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
-import { profile } from '@/data';
+import { useLocale, useTranslations } from 'next-intl';
+import { getProfile } from '@/data/profile';
 import { siteConfig } from '@/lib/constants';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -9,6 +9,8 @@ import { Mail, Github, Linkedin, Twitter, ExternalLink } from 'lucide-react';
 
 export function ContactSection() {
   const t = useTranslations('contact');
+  const locale = useLocale() as 'en' | 'pt';
+  const profile = getProfile(locale);
 
   const socialLinks = [
     {

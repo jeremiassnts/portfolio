@@ -1,13 +1,15 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
-import { profile } from '@/data';
+import { useLocale, useTranslations } from 'next-intl';
+import { getProfile } from '@/data/profile';
 import { Card, CardContent } from '@/components/ui/card';
 import { MapPin, Mail, CheckCircle2 } from 'lucide-react';
 import Image from 'next/image';
 
 export function AboutSection() {
   const t = useTranslations('about');
+  const locale = useLocale() as 'en' | 'pt';
+  const profile = getProfile(locale);
 
   return (
     <section id="about" className="container mx-auto px-4 py-20 bg-muted/30">
