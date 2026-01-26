@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 
 import { Geist, Geist_Mono } from "next/font/google";
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
 
-import "../index.css";
+import "../../index.css";
 import Header from "@/components/header";
 import Providers from "@/components/providers";
 
@@ -21,20 +23,27 @@ export const metadata: Metadata = {
   description: "portfolio",
 };
 
-export default function RootLayout({
+export default async function LocaleLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }>) {
+  const { locale } = await params;
+  const messages = await getMessages();
+
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <Providers>
-          <div className="grid grid-rows-[auto_1fr] h-svh">
-            <Header />
-            {children}
-          </div>
-        </Providers>
+        <NextIntlClientProvider messages={messages}>
+          <Providers>
+            <div className="grid grid-rows-[auto_1fr] h-svh">
+              <Header />
+              {children}
+            </div>
+          </Providers>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

@@ -1,0 +1,45 @@
+{
+  "nav": {
+    "projects": "Projects",
+    "about": "About",
+    "technologies": "Technologies",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Building scalable products for international markets",
+    "subtitle": "Fullstack Developer focused on creating impactful solutions",
+    "cta": {
+      "projects": "View Projects",
+      "contact": "Get in Touch"
+    }
+  },
+  "projects": {
+    "title": "Selected Projects",
+    "viewAll": "View All Projects",
+    "viewProject": "View Project",
+    "liveDemo": "Live Demo",
+    "sourceCode": "Source Code"
+  },
+  "about": {
+    "title": "About Me",
+    "description": "Passionate about building products that solve real problems and create value for users."
+  },
+  "technologies": {
+    "title": "Technologies",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "database": "Database",
+    "devops": "DevOps",
+    "tools": "Tools"
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "description": "I'm always open to discussing new projects and opportunities.",
+    "availability": "Currently available for freelance work",
+    "email": "Email",
+    "social": "Social Links"
+  },
+  "footer": {
+    "rights": "All rights reserved"
+  }
+}

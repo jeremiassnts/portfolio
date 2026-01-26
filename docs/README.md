@@ -1,5 +1,7 @@
 # Portfolio - Implementation Documentation
 
+> **📝 DOCUMENTATION STANDARD**: All project documentation MUST be written in English. This ensures consistency and accessibility for the international development community. When creating or updating documentation, always use English.
+
 Complete implementation guide for a professional international portfolio.
 
 ## 📚 Index

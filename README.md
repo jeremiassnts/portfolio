@@ -1,5 +1,7 @@
 # Portfolio - Professional Fullstack Developer
 
+> **📝 DOCUMENTATION STANDARD**: All project documentation MUST be written in English. This ensures consistency and accessibility for the international development community. See [DOCUMENTATION_STANDARDS.md](./DOCUMENTATION_STANDARDS.md) for details.
+
 Modern, international-ready portfolio built with Next.js 16, focusing on real products and practical impact.
 
 ## 📚 Documentation

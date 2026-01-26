@@ -1,5 +1,7 @@
 # 📋 Portfolio Project - Documentation Summary
 
+> **📝 DOCUMENTATION STANDARD**: All project documentation MUST be written in English. This ensures consistency and accessibility for the international development community. When creating or updating documentation, always use English.
+
 **Status**: ✅ **COMPLETE AND READY FOR EXECUTION**  
 **Date**: January 2026  
 **Version**: 1.0.0

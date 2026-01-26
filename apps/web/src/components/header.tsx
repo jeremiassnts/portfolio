@@ -1,10 +1,12 @@
 "use client";
 import Link from "next/link";
+import { useLocale } from 'next-intl';
 
 import { ModeToggle } from "./mode-toggle";
 
 export default function Header() {
-  const links = [{ to: "/", label: "Home" }] as const;
+  const locale = useLocale();
+  const links = [{ to: `/${locale}`, label: "Home" }] as const;
 
   return (
     <div>
