@@ -1,14 +1,18 @@
+'use client';
+
 import { useTranslations } from 'next-intl';
 import { GithubIcon, LinkedinIcon, TwitterIcon } from 'lucide-react';
 import { siteConfig } from '@/lib/constants';
 
 export function Footer() {
+  const t = useTranslations('footer');
+
   return (
     <footer className="border-t mt-20">
       <div className="container mx-auto px-4 py-8">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
+            © {new Date().getFullYear()} {siteConfig.name}. {t('rights')}.
           </p>
           
           <div className="flex gap-4">

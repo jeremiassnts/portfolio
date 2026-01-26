@@ -52,5 +52,14 @@
   },
   "footer": {
     "rights": "Todos os direitos reservados"
+  },
+  "notFound": {
+    "title": "Projeto Não Encontrado",
+    "description": "O projeto que você está procurando não existe.",
+    "backToProjects": "Voltar aos Projetos"
+  },
+  "availability": {
+    "available": "Disponível para trabalho",
+    "unavailable": "Atualmente indisponível"
   }
 }

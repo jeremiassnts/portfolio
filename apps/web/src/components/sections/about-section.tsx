@@ -8,6 +8,7 @@ import Image from 'next/image';
 
 export function AboutSection() {
   const t = useTranslations('about');
+  const tAvailability = useTranslations('availability');
   const locale = useLocale() as 'en' | 'pt';
   const profile = getProfile(locale);
 
@@ -45,7 +46,7 @@ export function AboutSection() {
                   {profile.availability === 'available' && (
                     <div className="flex items-center gap-2 text-green-600 dark:text-green-500">
                       <CheckCircle2 className="h-4 w-4" />
-                      <span className="font-medium">Available for work</span>
+                      <span className="font-medium">{tAvailability('available')}</span>
                     </div>
                   )}
                 </div>
