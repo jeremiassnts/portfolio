@@ -5,7 +5,8 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 
 import "../../index.css";
-import Header from "@/components/header";
+import { Header } from "@/components/layout/header";
+import { Footer } from "@/components/layout/footer";
 import Providers from "@/components/providers";
 
 const geistSans = Geist({
@@ -38,9 +39,10 @@ export default async function LocaleLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <NextIntlClientProvider messages={messages}>
           <Providers>
-            <div className="grid grid-rows-[auto_1fr] h-svh">
+            <div className="flex flex-col min-h-screen">
               <Header />
-              {children}
+              <main className="flex-1">{children}</main>
+              <Footer />
             </div>
           </Providers>
         </NextIntlClientProvider>
