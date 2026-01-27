@@ -16,7 +16,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
   const heroImage = project.images.find((img) => img.type === 'hero');
 
   return (
-    <Card className="flex flex-col h-full overflow-hidden group hover:shadow-lg transition-shadow">
+    <Card className="flex flex-col h-full overflow-hidden group hover:shadow-lg transition-shadow rounded-sm">
       {/* Image */}
       {heroImage && (
         <div className="relative w-full h-48 bg-muted overflow-hidden">
@@ -33,9 +33,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         <div className="flex items-start justify-between gap-4">
           <div>
             <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-            <p className="text-sm text-muted-foreground">
-              {project.shortDescription}
-            </p>
+            <p className="text-sm text-muted-foreground">{project.shortDescription}</p>
           </div>
           {project.featured && (
             <span className="px-2 py-1 text-xs font-medium rounded-full bg-primary/10 text-primary whitespace-nowrap">
@@ -66,9 +64,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
       <CardFooter className="flex gap-2">
         <Link href={`/${locale}/projects/${project.slug}`} className="flex-1">
-          <Button className="w-full">{t('viewProject')}</Button>
+          <Button className="w-full cursor-pointer rounded-sm">{t('viewProject')}</Button>
         </Link>
-        
+
         {project.githubUrl && (
           <a
             href={project.githubUrl}
@@ -76,12 +74,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
             rel="noopener noreferrer"
             aria-label="View source code on GitHub"
           >
-            <Button variant="outline" size="icon">
+            <Button variant="outline" size="icon" className="rounded-sm cursor-pointer">
               <Github className="h-4 w-4" />
             </Button>
           </a>
         )}
-        
+
         {project.liveUrl && (
           <a
             href={project.liveUrl}
@@ -89,7 +87,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             rel="noopener noreferrer"
             aria-label="View live demo"
           >
-            <Button variant="outline" size="icon">
+            <Button variant="outline" size="icon" className="rounded-sm cursor-pointer">
               <ExternalLink className="h-4 w-4" />
             </Button>
           </a>
