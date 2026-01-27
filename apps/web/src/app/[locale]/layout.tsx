@@ -9,7 +9,6 @@ import '../../index.css';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import Providers from '@/components/providers';
-import { ToasterClient } from '@/clients/toaster-client';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -60,7 +59,6 @@ export default async function LocaleLayout({
               <Footer />
             </div>
           </Providers>
-          <ToasterClient />
         </NextIntlClientProvider>
       </body>
     </html>
