@@ -1,38 +1,43 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { GithubIcon, LinkedinIcon, TwitterIcon } from 'lucide-react';
+import { GithubIcon, LinkedinIcon, TwitterIcon, Heart } from 'lucide-react';
 import { siteConfig } from '@/lib/constants';
 
 export function Footer() {
   const t = useTranslations('footer');
 
   return (
-    <footer className="border-t mt-20">
-      <div className="container mx-auto px-4 py-8">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} {siteConfig.name}. {t('rights')}.
-          </p>
+    <footer className="border-t mt-24 md:mt-32 bg-muted/20">
+      <div className="container mx-auto px-4 py-10 md:py-12">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="text-center md:text-left">
+            <p className="text-sm md:text-base text-muted-foreground flex items-center gap-2 justify-center md:justify-start">
+              © {new Date().getFullYear()} {siteConfig.name}. {t('rights')}.
+            </p>
+            <p className="text-xs text-muted-foreground mt-2 flex items-center gap-1 justify-center md:justify-start">
+              Built with <Heart className="w-3 h-3 text-red-500 fill-red-500 animate-pulse" /> using Next.js & TypeScript
+            </p>
+          </div>
           
-          <div className="flex gap-4">
+          <div className="flex gap-5">
             <a
               href={siteConfig.author.github}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              className="text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-125"
             >
-              <GithubIcon className="w-5 h-5" />
+              <GithubIcon className="w-6 h-6" />
             </a>
             <a
               href={siteConfig.author.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              className="text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-125"
             >
-              <LinkedinIcon className="w-5 h-5" />
+              <LinkedinIcon className="w-6 h-6" />
             </a>
           </div>
         </div>

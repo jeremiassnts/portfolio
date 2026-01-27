@@ -82,9 +82,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   return (
     <div className="min-h-screen">
       {/* Back button */}
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-6 md:py-8 animate-fade-in">
         <Link href={`/${locale}#projects`}>
-          <Button variant="ghost" size="sm" className="gap-2">
+          <Button variant="ghost" size="sm" className="gap-2 hover:gap-3 transition-all rounded-lg">
             <ArrowLeft className="h-4 w-4" />
             {t('backToProjects')}
           </Button>
@@ -93,39 +93,50 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
       {/* Hero Image */}
       {heroImage && (
-        <div className="relative w-full h-[400px] mb-12 bg-muted">
-          <Image src={heroImage.src} alt={heroImage.alt} fill className="object-cover" priority />
+        <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] mb-12 md:mb-16 bg-muted overflow-hidden animate-fade-in">
+          <Image
+            src={heroImage.src}
+            alt={heroImage.alt}
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
         </div>
       )}
 
       {/* Project Content */}
-      <div className="container mx-auto px-4 pb-20">
-        <div className="max-w-4xl mx-auto">
+      <div className="container mx-auto px-4 pb-20 md:pb-28">
+        <div className="max-w-5xl mx-auto">
           {/* Header */}
-          <div className="mb-8">
-            <div className="flex items-center gap-3 mb-4">
-              <h1 className="text-4xl font-bold">{project.title}</h1>
-              <span className="px-3 py-1 text-xs font-medium rounded-full bg-primary/10 text-primary">
+          <div className="mb-10 md:mb-12 animate-fade-in stagger-1">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-4">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold gradient-text">
+                {project.title}
+              </h1>
+              <span className="px-4 py-2 text-sm font-semibold rounded-full bg-primary/15 text-primary border border-primary/30 shadow-sm w-fit">
                 {project.year}
               </span>
             </div>
-            <p className="text-xl text-muted-foreground">{project.shortDescription}</p>
+            <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground leading-relaxed">
+              {project.shortDescription}
+            </p>
           </div>
 
           {/* Action Buttons */}
-          <div className="flex gap-4 mb-12">
+          <div className="flex flex-col sm:flex-row gap-4 mb-16 animate-fade-in stagger-2">
             {project.liveUrl && (
-              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="gap-2">
-                  <ExternalLink className="h-4 w-4" />
+              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                <Button size="lg" className="gap-2 group w-full sm:w-auto rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105">
+                  <ExternalLink className="h-5 w-5 group-hover:rotate-12 transition-transform" />
                   {t('liveDemo')}
                 </Button>
               </a>
             )}
             {project.githubUrl && (
-              <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" size="lg" className="gap-2">
-                  <Github className="h-4 w-4" />
+              <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                <Button variant="outline" size="lg" className="gap-2 group w-full sm:w-auto rounded-lg hover:shadow-md transition-all duration-300 hover:scale-105">
+                  <Github className="h-5 w-5 group-hover:rotate-12 transition-transform" />
                   {t('sourceCode')}
                 </Button>
               </a>
@@ -133,59 +144,77 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </div>
 
           {/* Problem, Solution, Outcome */}
-          <div className="space-y-8 mb-12">
-            <section>
-              <h2 className="text-2xl font-bold mb-4">{t('theProblem')}</h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">{project.problem}</p>
+          <div className="space-y-10 md:space-y-12 mb-16 animate-fade-in stagger-3">
+            <section className="bg-card p-6 md:p-8 rounded-xl shadow-md border">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4 text-primary">{t('theProblem')}</h2>
+              <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                {project.problem}
+              </p>
             </section>
 
-            <section>
-              <h2 className="text-2xl font-bold mb-4">{t('theSolution')}</h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">{project.solution}</p>
+            <section className="bg-card p-6 md:p-8 rounded-xl shadow-md border">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4 text-primary">{t('theSolution')}</h2>
+              <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                {project.solution}
+              </p>
             </section>
 
             {project.outcome && (
-              <section>
-                <h2 className="text-2xl font-bold mb-4">{t('theOutcome')}</h2>
-                <p className="text-lg text-muted-foreground leading-relaxed">{project.outcome}</p>
+              <section className="bg-card p-6 md:p-8 rounded-xl shadow-md border">
+                <h2 className="text-2xl md:text-3xl font-bold mb-4 text-primary">{t('theOutcome')}</h2>
+                <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                  {project.outcome}
+                </p>
               </section>
             )}
           </div>
 
           {/* Metrics */}
           {project.metrics && (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 p-6 bg-muted/50 rounded-lg">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-16 p-6 md:p-8 bg-muted/50 rounded-xl shadow-md animate-fade-in stagger-4">
               {project.metrics.users && (
-                <div>
-                  <p className="text-sm text-muted-foreground mb-1">{t('metrics.users')}</p>
-                  <p className="text-xl font-semibold">{project.metrics.users}</p>
+                <div className="text-center sm:text-left">
+                  <p className="text-sm md:text-base text-muted-foreground mb-2">
+                    {t('metrics.users')}
+                  </p>
+                  <p className="text-2xl md:text-3xl font-bold text-primary">
+                    {project.metrics.users}
+                  </p>
                 </div>
               )}
               {project.metrics.performance && (
-                <div>
-                  <p className="text-sm text-muted-foreground mb-1">{t('metrics.performance')}</p>
-                  <p className="text-xl font-semibold">{project.metrics.performance}</p>
+                <div className="text-center sm:text-left">
+                  <p className="text-sm md:text-base text-muted-foreground mb-2">
+                    {t('metrics.performance')}
+                  </p>
+                  <p className="text-2xl md:text-3xl font-bold text-primary">
+                    {project.metrics.performance}
+                  </p>
                 </div>
               )}
               {project.metrics.impact && (
-                <div>
-                  <p className="text-sm text-muted-foreground mb-1">{t('metrics.impact')}</p>
-                  <p className="text-xl font-semibold">{project.metrics.impact}</p>
+                <div className="text-center sm:text-left">
+                  <p className="text-sm md:text-base text-muted-foreground mb-2">
+                    {t('metrics.impact')}
+                  </p>
+                  <p className="text-2xl md:text-3xl font-bold text-primary">
+                    {project.metrics.impact}
+                  </p>
                 </div>
               )}
             </div>
           )}
 
           {/* Tech Stack */}
-          <section className="mb-12">
-            <h2 className="text-2xl font-bold mb-6">{t('techStack')}</h2>
+          <section className="mb-16 animate-fade-in stagger-4">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">{t('techStack')}</h2>
             <ProjectTechStack technologies={project.techStack} />
           </section>
 
           {/* Back to Projects */}
-          <div className="pt-8 border-t">
+          <div className="pt-8 border-t animate-fade-in stagger-4">
             <Link href={`/${locale}#projects`}>
-              <Button variant="outline" className="gap-2">
+              <Button variant="outline" className="gap-2 hover:gap-3 transition-all rounded-lg hover:shadow-md">
                 <ArrowLeft className="h-4 w-4" />
                 {t('backToAllProjects')}
               </Button>
