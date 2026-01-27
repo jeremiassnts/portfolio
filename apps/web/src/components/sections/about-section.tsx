@@ -35,6 +35,9 @@ export function AboutSection() {
                     width={280}
                     height={280}
                     className="rounded-xl shadow-md"
+                    placeholder="blur"
+                    blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjgwIiBoZWlnaHQ9IjI4MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjgwIiBoZWlnaHQ9IjI4MCIgZmlsbD0iI2Y1ZjVmNSIvPjwvc3ZnPg=="
+                    loading="lazy"
                   />
                 </div>
 

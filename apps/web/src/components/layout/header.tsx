@@ -20,6 +20,7 @@ export function Header() {
             width={36}
             height={36}
             className="rounded-full ring-2 ring-primary/10 hover:ring-primary/30 transition-all duration-300"
+            priority
           />
           <Link
             href={'/' as any}
