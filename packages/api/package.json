@@ -15,7 +15,7 @@
     "@trpc/client": "catalog:",
     "@trpc/server": "catalog:",
     "dotenv": "catalog:",
-    "next": "catalog:",
+    "next": "^15.5.10",
     "zod": "catalog:"
   },
   "devDependencies": {

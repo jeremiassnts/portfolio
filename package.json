@@ -14,7 +14,8 @@
     "dev:web": "turbo -F web dev",
     "clean": "rm -rf .turbo apps/web/.next apps/web/.turbo node_modules/.cache",
     "clean:cache": "rm -rf .turbo apps/web/.next apps/web/.turbo",
-    "clean:all": "pnpm clean && rm -rf node_modules apps/*/node_modules packages/*/node_modules pnpm-lock.yaml"
+    "clean:all": "pnpm clean && rm -rf node_modules apps/*/node_modules packages/*/node_modules pnpm-lock.yaml",
+    "lint": "turbo lint"
   },
   "dependencies": {
     "@portfolio/env": "workspace:*",

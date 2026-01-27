@@ -6,8 +6,7 @@ const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 
 const nextConfig: NextConfig = {
   typedRoutes: true,
-  reactCompiler: true,
-  
+
   // Image optimization configuration
   images: {
     formats: ['image/avif', 'image/webp'],
@@ -15,15 +14,15 @@ const nextConfig: NextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
   },
-  
+
   // Compression
   compress: true,
-  
+
   // Static page generation optimization
   experimental: {
     optimizePackageImports: ['lucide-react'],
   },
-  
+
   // Headers for caching
   async headers() {
     return [

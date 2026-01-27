@@ -14,7 +14,7 @@ export interface Project {
   githubUrl: string | null;
   liveUrl: string | null;
   status: ProjectStatus;
-  metrics?: ProjectMetrics;
+  metrics: ProjectMetrics | null;
 }
 
 export interface ProjectImage {
@@ -31,15 +31,6 @@ export interface ProjectMetrics {
   impact?: string;
 }
 
-export type ProjectCategory = 
-  | 'web-app' 
-  | 'mobile-app' 
-  | 'api' 
-  | 'tool' 
-  | 'library' 
-  | 'open-source';
+export type ProjectCategory = 'web-app' | 'mobile-app' | 'api' | 'tool' | 'library' | 'open-source';
 
-export type ProjectStatus = 
-  | 'completed' 
-  | 'in-progress' 
-  | 'maintained';
+export type ProjectStatus = 'completed' | 'in-progress' | 'maintained';

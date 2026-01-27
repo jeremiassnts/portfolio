@@ -9,6 +9,7 @@ import '../../index.css';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import Providers from '@/components/providers';
+import { ToasterClient } from '@/clients/toaster-client';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -40,10 +41,10 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>;
 }>) {
   const { locale } = await params;
-  
+
   // Enable static rendering
   setRequestLocale(locale);
-  
+
   const messages = await getMessages({ locale });
 
   return (
@@ -59,6 +60,7 @@ export default async function LocaleLayout({
               <Footer />
             </div>
           </Providers>
+          <ToasterClient />
         </NextIntlClientProvider>
       </body>
     </html>
