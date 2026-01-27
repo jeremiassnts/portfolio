@@ -10,5 +10,5 @@ export interface PageMetadata {
 export interface StructuredData {
   '@context': 'https://schema.org';
   '@type': string;
-  [key: string]: any;
+  [key: string]: unknown;
 }

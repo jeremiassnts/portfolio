@@ -2,7 +2,6 @@
 
 import { useLocale, useTranslations } from 'next-intl';
 import { getProfile } from '@/data/profile';
-import { siteConfig } from '@/lib/constants';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Mail, Github, Linkedin, Twitter, ExternalLink } from 'lucide-react';
@@ -58,12 +57,15 @@ export function ContactSection() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <a 
-                  href={`mailto:${profile.email}`} 
+                <a
+                  href={`mailto:${profile.email}`}
                   className="block"
                   aria-label={`Send email to ${profile.email}`}
                 >
-                  <Button className="w-full rounded-lg cursor-pointer hover:shadow-lg transition-all duration-300 hover:scale-105" size="lg">
+                  <Button
+                    className="w-full rounded-lg cursor-pointer hover:shadow-lg transition-all duration-300 hover:scale-105"
+                    size="lg"
+                  >
                     <Mail className="mr-2 h-5 w-5" aria-hidden="true" />
                     <span className="truncate">{profile.email}</span>
                   </Button>
@@ -77,7 +79,9 @@ export function ContactSection() {
                   <ExternalLink className="h-5 w-5 text-primary" aria-hidden="true" />
                   {t('social')}
                 </CardTitle>
-                <CardDescription className="text-base">Connect with me on social platforms</CardDescription>
+                <CardDescription className="text-base">
+                  Connect with me on social platforms
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-col gap-3">

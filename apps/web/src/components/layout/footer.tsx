@@ -1,7 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { GithubIcon, LinkedinIcon, TwitterIcon, Heart } from 'lucide-react';
+import { GithubIcon, LinkedinIcon, Heart } from 'lucide-react';
 import { siteConfig } from '@/lib/constants';
 
 export function Footer() {
@@ -17,10 +17,15 @@ export function Footer() {
               © {new Date().getFullYear()} {siteConfig.name}. {t('rights')}.
             </p>
             <p className="text-xs text-muted-foreground mt-2 flex items-center gap-1 justify-center md:justify-start">
-              Built with <Heart className="w-3 h-3 text-red-500 fill-red-500 animate-pulse" aria-hidden="true" /> using Next.js & TypeScript
+              Built with{' '}
+              <Heart
+                className="w-3 h-3 text-red-500 fill-red-500 animate-pulse"
+                aria-hidden="true"
+              />{' '}
+              using Next.js & TypeScript
             </p>
           </div>
-          
+
           <nav aria-label={a11y('socialLinks')} className="flex gap-5">
             <a
               href={siteConfig.author.github}

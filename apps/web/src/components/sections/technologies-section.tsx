@@ -13,12 +13,6 @@ const categoryIcons: Record<string, React.ReactNode> = {
   tools: <Wrench size={22} />,
 };
 
-const proficiencyColors: Record<string, string> = {
-  expert: 'bg-green-500/10 text-green-700 dark:text-green-400 border-green-500/20',
-  advanced: 'bg-blue-500/10 text-blue-700 dark:text-blue-400 border-blue-500/20',
-  intermediate: 'bg-yellow-500/10 text-yellow-700 dark:text-yellow-400 border-yellow-500/20',
-};
-
 export function TechnologiesSection() {
   const t = useTranslations('technologies');
 
