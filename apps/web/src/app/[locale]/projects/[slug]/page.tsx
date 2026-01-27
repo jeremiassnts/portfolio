@@ -77,15 +77,16 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   }
 
   const t = await getTranslations({ locale, namespace: 'projects' });
+  const a11y = await getTranslations({ locale, namespace: 'accessibility' });
   const heroImage = project.images.find((img) => img.type === 'hero');
 
   return (
-    <div className="min-h-screen">
+    <article className="min-h-screen">
       {/* Back button */}
       <div className="container mx-auto px-4 py-6 md:py-8 animate-fade-in">
         <Link href={`/${locale}#projects`}>
           <Button variant="ghost" size="sm" className="gap-2 hover:gap-3 transition-all rounded-lg">
-            <ArrowLeft className="h-4 w-4" />
+            <ArrowLeft className="h-4 w-4" aria-hidden="true" />
             {t('backToProjects')}
           </Button>
         </Link>
@@ -104,7 +105,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             placeholder="blur"
             blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI1MDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEyMDAiIGhlaWdodD0iNTAwIiBmaWxsPSIjZjVmNWY1Ii8+PC9zdmc+"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" aria-hidden="true" />
         </div>
       )}
 
@@ -129,17 +130,29 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 mb-16 animate-fade-in stagger-2">
             {project.liveUrl && (
-              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+              <a 
+                href={project.liveUrl} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-full sm:w-auto"
+                aria-label={`${project.title} - ${t('liveDemo')} (${a11y('openInNewTab')})`}
+              >
                 <Button size="lg" className="gap-2 group w-full sm:w-auto rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105">
-                  <ExternalLink className="h-5 w-5 group-hover:rotate-12 transition-transform" />
+                  <ExternalLink className="h-5 w-5 group-hover:rotate-12 transition-transform" aria-hidden="true" />
                   {t('liveDemo')}
                 </Button>
               </a>
             )}
             {project.githubUrl && (
-              <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+              <a 
+                href={project.githubUrl} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-full sm:w-auto"
+                aria-label={`${project.title} - ${t('sourceCode')} (${a11y('openInNewTab')})`}
+              >
                 <Button variant="outline" size="lg" className="gap-2 group w-full sm:w-auto rounded-lg hover:shadow-md transition-all duration-300 hover:scale-105">
-                  <Github className="h-5 w-5 group-hover:rotate-12 transition-transform" />
+                  <Github className="h-5 w-5 group-hover:rotate-12 transition-transform" aria-hidden="true" />
                   {t('sourceCode')}
                 </Button>
               </a>
@@ -218,13 +231,13 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           <div className="pt-8 border-t animate-fade-in stagger-4">
             <Link href={`/${locale}#projects`}>
               <Button variant="outline" className="gap-2 hover:gap-3 transition-all rounded-lg hover:shadow-md">
-                <ArrowLeft className="h-4 w-4" />
+                <ArrowLeft className="h-4 w-4" aria-hidden="true" />
                 {t('backToAllProjects')}
               </Button>
             </Link>
           </div>
         </div>
       </div>
-    </div>
+    </article>
   );
 }

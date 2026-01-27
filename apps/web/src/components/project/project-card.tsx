@@ -12,6 +12,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   const t = useTranslations('projects');
+  const a11y = useTranslations('accessibility');
   const locale = useLocale();
   const heroImage = project.images.find((img) => img.type === 'hero');
 
@@ -30,7 +31,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0iI2Y1ZjVmNSIvPjwvc3ZnPg=="
             loading="lazy"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-hidden="true" />
         </div>
       )}
 
@@ -84,10 +85,10 @@ export function ProjectCard({ project }: ProjectCardProps) {
             href={project.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="View source code on GitHub"
+            aria-label={`${project.title} - GitHub (${a11y('openInNewTab')})`}
           >
             <Button variant="outline" size="icon" className="rounded-lg cursor-pointer hover:bg-secondary transition-all duration-300">
-              <Github className="h-4 w-4" />
+              <Github className="h-4 w-4" aria-hidden="true" />
             </Button>
           </a>
         )}
@@ -97,10 +98,10 @@ export function ProjectCard({ project }: ProjectCardProps) {
             href={project.liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="View live demo"
+            aria-label={`${project.title} - ${t('liveDemo')} (${a11y('openInNewTab')})`}
           >
             <Button variant="outline" size="icon" className="rounded-lg cursor-pointer hover:bg-secondary transition-all duration-300">
-              <ExternalLink className="h-4 w-4" />
+              <ExternalLink className="h-4 w-4" aria-hidden="true" />
             </Button>
           </a>
         )}

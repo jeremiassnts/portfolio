@@ -61,5 +61,13 @@
   "availability": {
     "available": "Disponível para trabalho",
     "unavailable": "Atualmente indisponível"
+  },
+  "accessibility": {
+    "skipToContent": "Pular para o conteúdo principal",
+    "toggleTheme": "Alternar tema",
+    "switchLanguage": "Mudar idioma",
+    "mainNavigation": "Navegação principal",
+    "socialLinks": "Links sociais",
+    "openInNewTab": "abre em nova aba"
   }
 }

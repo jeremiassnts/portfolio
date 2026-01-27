@@ -9,6 +9,7 @@ import { Mail, Github, Linkedin, Twitter, ExternalLink } from 'lucide-react';
 
 export function ContactSection() {
   const t = useTranslations('contact');
+  const a11y = useTranslations('accessibility');
   const locale = useLocale() as 'en' | 'pt';
   const profile = getProfile(locale);
 
@@ -49,7 +50,7 @@ export function ContactSection() {
             <Card className="rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 animate-fade-in stagger-1">
               <CardHeader className="space-y-1">
                 <CardTitle className="flex items-center gap-2 text-xl">
-                  <Mail className="h-5 w-5 text-primary" />
+                  <Mail className="h-5 w-5 text-primary" aria-hidden="true" />
                   {t('email')}
                 </CardTitle>
                 <CardDescription className="text-base">
@@ -57,9 +58,13 @@ export function ContactSection() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <a href={`mailto:${profile.email}`} className="block">
+                <a 
+                  href={`mailto:${profile.email}`} 
+                  className="block"
+                  aria-label={`Send email to ${profile.email}`}
+                >
                   <Button className="w-full rounded-lg cursor-pointer hover:shadow-lg transition-all duration-300 hover:scale-105" size="lg">
-                    <Mail className="mr-2 h-5 w-5" />
+                    <Mail className="mr-2 h-5 w-5" aria-hidden="true" />
                     <span className="truncate">{profile.email}</span>
                   </Button>
                 </a>
@@ -69,7 +74,7 @@ export function ContactSection() {
             <Card className="rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 animate-fade-in stagger-2">
               <CardHeader className="space-y-1">
                 <CardTitle className="flex items-center gap-2 text-xl">
-                  <ExternalLink className="h-5 w-5 text-primary" />
+                  <ExternalLink className="h-5 w-5 text-primary" aria-hidden="true" />
                   {t('social')}
                 </CardTitle>
                 <CardDescription className="text-base">Connect with me on social platforms</CardDescription>
@@ -84,7 +89,8 @@ export function ContactSection() {
                         href={link.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="animate-fade-in"
+                        aria-label={`${link.name} (${a11y('openInNewTab')})`}
+                        className="animate-fade-in block"
                         style={{ animationDelay: `${(index + 2) * 0.1}s` }}
                       >
                         <Button
@@ -92,7 +98,7 @@ export function ContactSection() {
                           className="w-full justify-start rounded-lg cursor-pointer hover:shadow-md transition-all duration-300 hover:scale-105 hover:bg-secondary"
                           size="lg"
                         >
-                          <Icon className="mr-3 h-5 w-5" />
+                          <Icon className="mr-3 h-5 w-5" aria-hidden="true" />
                           {link.name}
                         </Button>
                       </a>

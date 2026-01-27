@@ -61,5 +61,13 @@
   "availability": {
     "available": "Available for work",
     "unavailable": "Currently unavailable"
+  },
+  "accessibility": {
+    "skipToContent": "Skip to main content",
+    "toggleTheme": "Toggle theme",
+    "switchLanguage": "Switch language",
+    "mainNavigation": "Main navigation",
+    "socialLinks": "Social links",
+    "openInNewTab": "opens in new tab"
   }
 }
