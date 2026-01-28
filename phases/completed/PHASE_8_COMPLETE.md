@@ -19,6 +19,7 @@ Phase 8 focused on optimizing the portfolio for maximum performance, achieving e
 ### 1. Image Optimization
 
 #### Next.js Image Configuration
+
 - ✅ Configured AVIF and WebP format support for modern browsers
 - ✅ Added optimized device sizes array (640px to 3840px)
 - ✅ Configured image sizes for responsive loading (16px to 384px)
@@ -36,12 +37,14 @@ images: {
 ```
 
 #### Blur Placeholder Implementation
+
 - ✅ Added blur placeholders to all images for smoother loading
 - ✅ Implemented SVG-based placeholder data URLs
 - ✅ Configured appropriate loading strategies (priority/lazy)
 - ✅ Added responsive sizes attributes for optimal image selection
 
 **Images Optimized**:
+
 1. **Header Profile Image** (36x36px)
    - Priority loading for above-the-fold content
    - Instant visibility with no layout shift
@@ -61,6 +64,7 @@ images: {
    - Responsive sizes: `100vw`
 
 #### Loading Strategy
+
 ```typescript
 // Priority loading for above-the-fold images
 <Image priority />
@@ -69,21 +73,23 @@ images: {
 <Image loading="lazy" />
 
 // Blur placeholder for smooth loading
-<Image 
+<Image
   placeholder="blur"
-  blurDataURL="data:image/svg+xml;base64,..." 
+  blurDataURL="data:image/svg+xml;base64,..."
 />
 ```
 
 ### 2. Code Splitting & Dynamic Imports
 
 #### Homepage Optimization
+
 - ✅ Implemented dynamic imports for below-the-fold sections
 - ✅ Added React Suspense boundaries for progressive loading
 - ✅ Created loading skeleton components
 - ✅ Reduced initial JavaScript bundle size
 
 **Code Splitting Strategy**:
+
 - **Hero Section**: Loads immediately (above the fold)
 - **Projects Section**: Dynamically imported with loading skeleton
 - **About Section**: Dynamically imported with loading skeleton
@@ -100,6 +106,7 @@ const ProjectsSection = dynamic(
 ```
 
 #### Loading Skeleton Component
+
 - ✅ Created reusable `SectionLoader` component
 - ✅ Animated pulse effect for better UX
 - ✅ Matches section layout for minimal shift
@@ -108,6 +115,7 @@ const ProjectsSection = dynamic(
 ### 3. Caching Strategy
 
 #### Static Asset Caching
+
 - ✅ Configured long-term caching for images (1 year)
 - ✅ Configured immutable caching for Next.js static files
 - ✅ Added proper Cache-Control headers
@@ -136,6 +144,7 @@ async headers() {
 ```
 
 #### Static Generation
+
 - ✅ All pages pre-rendered at build time (17 static pages)
 - ✅ Optimized generateStaticParams for project pages
 - ✅ Efficient locale-based static generation
@@ -144,14 +153,15 @@ async headers() {
 ### 4. Font Optimization
 
 #### Google Fonts Configuration
+
 - ✅ Added `display: 'swap'` for faster text rendering
-- ✅ Enabled preloading for primary font (Geist Sans)
+- ✅ Enabled preloading for primary font (Poppins)
 - ✅ Automatic font optimization by Next.js
 - ✅ Self-hosted fonts for better performance
 
 ```typescript
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const poppins = Poppins({
+  variable: '--font-poppins',
   subsets: ['latin'],
   display: 'swap',
   preload: true,
@@ -161,12 +171,14 @@ const geistSans = Geist({
 ### 5. Bundle Optimization
 
 #### Package Imports
+
 - ✅ Enabled `optimizePackageImports` for lucide-react
 - ✅ Tree-shaking for unused icons
 - ✅ Reduced bundle size for icon imports
 - ✅ Automatic optimization by Next.js Turbopack
 
 #### Build Configuration
+
 - ✅ Enabled compression
 - ✅ React Compiler enabled for performance
 - ✅ Turbopack for faster builds
@@ -177,24 +189,28 @@ const geistSans = Geist({
 ## 📊 Performance Metrics
 
 ### Build Performance
+
 - ✅ **TypeScript Compilation**: Successful (0 errors)
 - ✅ **Production Build**: Successful in ~7 seconds
 - ✅ **Static Pages Generated**: 17 pages
 - ✅ **Build Time**: ~7.4 seconds (improved with Turbopack)
 
 ### Bundle Size Improvements
+
 - ✅ Initial JavaScript bundle significantly reduced
 - ✅ Dynamic imports create smaller chunks
 - ✅ Code splitting reduces Time to Interactive (TTI)
 - ✅ Lazy loading improves First Contentful Paint (FCP)
 
 ### Image Optimization Results
+
 - ✅ Automatic WebP/AVIF conversion
 - ✅ Responsive image sizes served based on viewport
 - ✅ Blur placeholders eliminate layout shift
 - ✅ Lazy loading reduces initial page weight
 
 ### Caching Benefits
+
 - ✅ Static assets cached for 1 year
 - ✅ Reduced server load
 - ✅ Faster repeat visits
@@ -205,6 +221,7 @@ const geistSans = Geist({
 ## 🎯 Key Improvements Summary
 
 ### Before Phase 8
+
 - Basic image handling without optimization
 - All components loaded synchronously
 - No caching strategy
@@ -212,6 +229,7 @@ const geistSans = Geist({
 - Larger initial bundle
 
 ### After Phase 8
+
 - ✅ **Images**: AVIF/WebP formats, blur placeholders, responsive sizes, lazy loading
 - ✅ **Code**: Dynamic imports, code splitting, smaller initial bundle
 - ✅ **Caching**: Long-term caching for static assets, CDN-optimized
@@ -316,6 +334,7 @@ export function SectionLoader() {
 ## ✅ Verification
 
 ### Build Verification
+
 ```bash
 # TypeScript check
 cd apps/web && pnpm exec tsc --noEmit
@@ -327,6 +346,7 @@ cd apps/web && pnpm build
 ```
 
 ### Performance Checklist
+
 - ✅ Images use WebP/AVIF formats
 - ✅ Blur placeholders implemented
 - ✅ Above-the-fold content loads first
@@ -337,6 +357,7 @@ cd apps/web && pnpm build
 - ✅ All pages statically generated
 
 ### Expected Core Web Vitals
+
 - ✅ **LCP (Largest Contentful Paint)**: Improved with image optimization and priority loading
 - ✅ **FID (First Input Delay)**: Improved with code splitting and reduced bundle size
 - ✅ **CLS (Cumulative Layout Shift)**: Prevented with blur placeholders and proper sizing
@@ -348,6 +369,7 @@ cd apps/web && pnpm build
 ## 🎯 Performance Optimization Features
 
 ### Implemented Optimizations
+
 1. ✅ **Image Optimization**: AVIF/WebP, responsive sizes, blur placeholders
 2. ✅ **Code Splitting**: Dynamic imports for below-the-fold sections
 3. ✅ **Lazy Loading**: Sections and images loaded on demand
@@ -358,6 +380,7 @@ cd apps/web && pnpm build
 8. ✅ **Compression**: Gzip/Brotli compression enabled
 
 ### Best Practices Applied
+
 - ✅ Progressive loading strategy
 - ✅ Minimized layout shifts
 - ✅ Optimized critical rendering path
@@ -381,6 +404,7 @@ cd apps/web && pnpm build
 ## 🚀 Next Steps
 
 **Phase 9**: Testing & Accessibility
+
 - Accessibility audit with Lighthouse and axe DevTools
 - Keyboard navigation testing
 - Screen reader compatibility
@@ -392,6 +416,7 @@ cd apps/web && pnpm build
 ## 📝 Notes
 
 ### Performance Optimizations Summary
+
 1. **Images**: All images optimized with modern formats and loading strategies
 2. **Code**: Dynamic imports reduce initial bundle size by ~40-50%
 3. **Caching**: Static assets cached for optimal repeat performance
@@ -399,12 +424,14 @@ cd apps/web && pnpm build
 5. **Build**: Production build optimized with latest Next.js features
 
 ### Known Considerations
+
 - ⚠️ metadataBase warning (expected, uses localhost default)
 - Dynamic imports may show brief loading states on slow connections
 - AVIF format support varies by browser (fallback to WebP/JPEG)
 - First visit requires downloading assets (subsequent visits cached)
 
 ### Recommendations for Future
+
 - Consider implementing Service Worker for offline support
 - Add performance monitoring (Web Vitals reporting)
 - Consider implementing Incremental Static Regeneration (ISR) for dynamic content

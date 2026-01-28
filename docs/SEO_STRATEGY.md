@@ -18,18 +18,18 @@
 
 import type { Metadata } from 'next';
 
-export async function generateMetadata({ 
-  params: { locale } 
-}: { 
-  params: { locale: string } 
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
 }): Promise<Metadata> {
-  const title = locale === 'en' 
-    ? 'Your Name - Fullstack Developer'
-    : 'Your Name - Fullstack Developer';
-  
-  const description = locale === 'en'
-    ? 'Fullstack Developer specializing in React, Next.js, and Node.js. Available for international full-time and freelance opportunities.'
-    : 'Desenvolvedor Fullstack especializado em React, Next.js e Node.js. Disponível para oportunidades internacionais full-time e freelance.';
+  const title =
+    locale === 'en' ? 'Your Name - Fullstack Developer' : 'Your Name - Fullstack Developer';
+
+  const description =
+    locale === 'en'
+      ? 'Fullstack Developer specializing in React, Next.js, and Node.js. Available for international full-time and freelance opportunities.'
+      : 'Desenvolvedor Fullstack especializado em React, Next.js e Node.js. Disponível para oportunidades internacionais full-time e freelance.';
 
   return {
     title,
@@ -62,8 +62,8 @@ export async function generateMetadata({
     alternates: {
       canonical: `https://yoursite.com/${locale}`,
       languages: {
-        'en': 'https://yoursite.com/en',
-        'pt': 'https://yoursite.com/pt',
+        en: 'https://yoursite.com/en',
+        pt: 'https://yoursite.com/pt',
       },
     },
   };
@@ -76,12 +76,12 @@ export async function generateMetadata({
 // app/[locale]/projects/[slug]/page.tsx
 
 export async function generateMetadata({
-  params: { locale, slug }
+  params: { locale, slug },
 }: {
-  params: { locale: string; slug: string }
+  params: { locale: string; slug: string };
 }): Promise<Metadata> {
-  const project = projects.find(p => p.slug === slug);
-  
+  const project = projects.find((p) => p.slug === slug);
+
   if (!project) {
     return {
       title: 'Project Not Found',
@@ -120,8 +120,8 @@ export async function generateMetadata({
     alternates: {
       canonical: `https://yoursite.com/${locale}/projects/${slug}`,
       languages: {
-        'en': `https://yoursite.com/en/projects/${slug}`,
-        'pt': `https://yoursite.com/pt/projects/${slug}`,
+        en: `https://yoursite.com/en/projects/${slug}`,
+        pt: `https://yoursite.com/pt/projects/${slug}`,
       },
     },
   };
@@ -147,18 +147,10 @@ export function generatePersonSchema(profile: Profile, locale: string) {
     jobTitle: locale === 'en' ? 'Fullstack Developer' : 'Desenvolvedor Fullstack',
     url: `https://yoursite.com/${locale}`,
     email: profile.email,
-    sameAs: [
-      profile.social.github,
-      profile.social.linkedin,
-      profile.social.twitter,
-    ].filter(Boolean),
-    knowsAbout: [
-      'React',
-      'Next.js',
-      'TypeScript',
-      'Node.js',
-      'Web Development',
-    ],
+    sameAs: [profile.social.github, profile.social.linkedin, profile.social.twitter].filter(
+      Boolean
+    ),
+    knowsAbout: ['React', 'Next.js', 'TypeScript', 'Node.js', 'Web Development'],
     homeLocation: {
       '@type': 'Place',
       name: profile.location,
@@ -176,9 +168,10 @@ export function generateWebsiteSchema(locale: string) {
     '@type': 'WebSite',
     name: 'Your Name Portfolio',
     url: `https://yoursite.com/${locale}`,
-    description: locale === 'en'
-      ? 'Portfolio of a Fullstack Developer'
-      : 'Portfolio de um Desenvolvedor Fullstack',
+    description:
+      locale === 'en'
+        ? 'Portfolio of a Fullstack Developer'
+        : 'Portfolio de um Desenvolvedor Fullstack',
     inLanguage: locale,
     potentialAction: {
       '@type': 'SearchAction',
@@ -260,7 +253,7 @@ import { siteConfig } from '@/lib/constants';
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = siteConfig.url;
   const locales = siteConfig.locales;
-  
+
   // Homepage for each locale
   const homepages = locales.map((locale) => ({
     url: `${baseUrl}/${locale}`,
@@ -355,7 +348,7 @@ import Image from 'next/image';
   <section aria-labelledby="projects-heading">
     <h2 id="projects-heading">Selected Projects</h2>
     <div>
-      {projects.map(project => (
+      {projects.map((project) => (
         <article key={project.id}>
           <h3>{project.title}</h3>
           {/* ... */}
@@ -395,7 +388,7 @@ import Image from 'next/image';
 
 1. **Lazy Loading**: Images below the fold
 2. **Priority**: Hero image with `priority`
-3. **Font Optimization**: Geist already optimized
+3. **Font Optimization**: Poppins already optimized
 4. **Code Splitting**: Automatic in Next.js
 5. **React Compiler**: Already enabled
 
@@ -404,6 +397,7 @@ import Image from 'next/image';
 ## 8. SEO Checklist
 
 ### Pre-Deploy
+
 - [ ] Complete metadata on all pages
 - [ ] Open Graph images (1200x630px)
 - [ ] Structured data implemented
@@ -415,6 +409,7 @@ import Image from 'next/image';
 - [ ] hreflang for i18n
 
 ### Post-Deploy
+
 - [ ] Submit sitemap to Google Search Console
 - [ ] Verify indexing of both languages
 - [ ] Test Open Graph in Facebook Debugger
@@ -429,22 +424,27 @@ import Image from 'next/image';
 ## 9. Validation Tools
 
 ### Open Graph
+
 - [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/)
 - [LinkedIn Post Inspector](https://www.linkedin.com/post-inspector/)
 
 ### Twitter Card
+
 - [Twitter Card Validator](https://cards-dev.twitter.com/validator)
 
 ### Structured Data
+
 - [Google Rich Results Test](https://search.google.com/test/rich-results)
 - [Schema.org Validator](https://validator.schema.org/)
 
 ### Performance
+
 - [PageSpeed Insights](https://pagespeed.web.dev/)
 - [GTmetrix](https://gtmetrix.com/)
 - [WebPageTest](https://www.webpagetest.org/)
 
 ### General SEO
+
 - [Google Search Console](https://search.google.com/search-console)
 - [Lighthouse (Chrome DevTools)](chrome://lighthouse)
 
