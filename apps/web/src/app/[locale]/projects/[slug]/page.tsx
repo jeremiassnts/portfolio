@@ -24,9 +24,7 @@ export async function generateStaticParams() {
 }
 
 // Generate metadata for each project page
-export async function generateMetadata({
-  params,
-}: ProjectPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: ProjectPageProps): Promise<Metadata> {
   const { slug, locale } = await params;
   const projects = getProjects(locale as 'en' | 'pt');
   const project = projects.find((p) => p.slug === slug);
@@ -38,7 +36,7 @@ export async function generateMetadata({
   }
 
   const t = await getTranslations({ locale });
-  const heroImage = project.images.find((img) => img.type === 'hero');
+  const heroImage = project.heroImage;
 
   return {
     title: `${project.title} | ${t('projects.title')}`,
@@ -78,7 +76,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
   const t = await getTranslations({ locale, namespace: 'projects' });
   const a11y = await getTranslations({ locale, namespace: 'accessibility' });
-  const heroImage = project.images.find((img) => img.type === 'hero');
+  const heroImage = project.heroImage;
 
   return (
     <article className="min-h-screen">
@@ -105,7 +103,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             placeholder="blur"
             blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI1MDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEyMDAiIGhlaWdodD0iNTAwIiBmaWxsPSIjZjVmNWY1Ii8+PC9zdmc+"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" aria-hidden="true" />
+          <div
+            className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent"
+            aria-hidden="true"
+          />
         </div>
       )}
 
@@ -130,60 +131,82 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 mb-16 animate-fade-in stagger-2">
             {project.liveUrl && (
-              <a 
-                href={project.liveUrl} 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full sm:w-auto"
                 aria-label={`${project.title} - ${t('liveDemo')} (${a11y('openInNewTab')})`}
               >
-                <Button size="lg" className="gap-2 group w-full sm:w-auto rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105">
-                  <ExternalLink className="h-5 w-5 group-hover:rotate-12 transition-transform" aria-hidden="true" />
+                <Button
+                  size="lg"
+                  className="gap-2 group w-full sm:w-auto rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105"
+                >
+                  <ExternalLink
+                    className="h-5 w-5 group-hover:rotate-12 transition-transform"
+                    aria-hidden="true"
+                  />
                   {t('liveDemo')}
                 </Button>
               </a>
             )}
             {project.githubUrl && (
-              <a 
-                href={project.githubUrl} 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full sm:w-auto"
                 aria-label={`${project.title} - ${t('sourceCode')} (${a11y('openInNewTab')})`}
               >
-                <Button variant="outline" size="lg" className="gap-2 group w-full sm:w-auto rounded-lg hover:shadow-md transition-all duration-300 hover:scale-105">
-                  <Github className="h-5 w-5 group-hover:rotate-12 transition-transform" aria-hidden="true" />
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="gap-2 group w-full sm:w-auto rounded-lg hover:shadow-md transition-all duration-300 hover:scale-105"
+                >
+                  <Github
+                    className="h-5 w-5 group-hover:rotate-12 transition-transform"
+                    aria-hidden="true"
+                  />
                   {t('sourceCode')}
                 </Button>
               </a>
             )}
           </div>
 
-          {/* Problem, Solution, Outcome */}
-          <div className="space-y-10 md:space-y-12 mb-16 animate-fade-in stagger-3">
-            <section className="bg-card p-6 md:p-8 rounded-xl shadow-md border">
-              <h2 className="text-2xl md:text-3xl font-bold mb-4 text-primary">{t('theProblem')}</h2>
-              <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                {project.problem}
-              </p>
-            </section>
+          {/* Description */}
+          <section className="bg-card p-6 md:p-8 rounded-xl shadow-md border mb-16 animate-fade-in stagger-3">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-primary">{t('description')}</h2>
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed whitespace-pre-line">
+              {project.description}
+            </p>
+          </section>
 
-            <section className="bg-card p-6 md:p-8 rounded-xl shadow-md border">
-              <h2 className="text-2xl md:text-3xl font-bold mb-4 text-primary">{t('theSolution')}</h2>
-              <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                {project.solution}
-              </p>
+          {/* Gallery */}
+          {project.gallery.length > 0 && (
+            <section className="mb-16 animate-fade-in stagger-3">
+              <h2 className="text-2xl md:text-3xl font-bold mb-6">{t('gallery')}</h2>
+              <div className="flex flex-row flex-wrap gap-4">
+                {project.gallery.map((img) => (
+                  <div
+                    key={img.src}
+                    style={{
+                      width: '45%',
+                    }}
+                  >
+                    <Image
+                      src={img.src}
+                      alt={img.alt}
+                      width={img.width}
+                      height={img.height}
+                      placeholder="blur"
+                      className="object-cover border-2 border-secondary rounded-sm"
+                      blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ1MCIgZmlsbD0iI2Y1ZjVmNSIvPjwvc3ZnPg=="
+                    />
+                  </div>
+                ))}
+              </div>
             </section>
-
-            {project.outcome && (
-              <section className="bg-card p-6 md:p-8 rounded-xl shadow-md border">
-                <h2 className="text-2xl md:text-3xl font-bold mb-4 text-primary">{t('theOutcome')}</h2>
-                <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                  {project.outcome}
-                </p>
-              </section>
-            )}
-          </div>
+          )}
 
           {/* Metrics */}
           {project.metrics && (
@@ -230,7 +253,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           {/* Back to Projects */}
           <div className="pt-8 border-t animate-fade-in stagger-4">
             <Link href={`/${locale}#projects`}>
-              <Button variant="outline" className="gap-2 hover:gap-3 transition-all rounded-lg hover:shadow-md">
+              <Button
+                variant="outline"
+                className="gap-2 hover:gap-3 transition-all rounded-lg hover:shadow-md"
+              >
                 <ArrowLeft className="h-4 w-4" aria-hidden="true" />
                 {t('backToAllProjects')}
               </Button>

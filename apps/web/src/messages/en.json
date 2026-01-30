@@ -21,9 +21,9 @@
     "sourceCode": "Source Code",
     "backToProjects": "Back to Projects",
     "backToAllProjects": "Back to All Projects",
-    "theProblem": "The Problem",
-    "theSolution": "The Solution",
-    "theOutcome": "The Outcome",
+    "description": "Description",
+    "gallery": "Gallery",
+    "closeImage": "Close",
     "techStack": "Tech Stack",
     "metrics": {
       "users": "Users",

@@ -21,9 +21,9 @@
     "sourceCode": "Código Fonte",
     "backToProjects": "Voltar aos Projetos",
     "backToAllProjects": "Voltar a Todos os Projetos",
-    "theProblem": "O Problema",
-    "theSolution": "A Solução",
-    "theOutcome": "O Resultado",
+    "description": "Descrição",
+    "gallery": "Galeria",
+    "closeImage": "Fechar",
     "techStack": "Tech Stack",
     "metrics": {
       "users": "Usuários",

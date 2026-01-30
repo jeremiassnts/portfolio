@@ -14,7 +14,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
   const t = useTranslations('projects');
   const a11y = useTranslations('accessibility');
   const locale = useLocale();
-  const heroImage = project.images.find((img) => img.type === 'hero');
+  const heroImage = project.heroImage;
 
   return (
     <Card className="flex flex-col h-full overflow-hidden group hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 rounded-xl border-2 hover:border-primary/20">

@@ -3,14 +3,16 @@ export interface Project {
   slug: string;
   title: string;
   shortDescription: string;
-  problem: string;
-  solution: string;
-  outcome: string | null;
+  /** Single hero image displayed at the top of the project page. */
+  heroImage: ProjectImage | null;
+  /** Additional project images shown in the gallery section. */
+  gallery: ProjectImage[];
+  /** Full project description (replaces problem/solution/outcome). */
+  description: string;
   techStack: string[];
   category: ProjectCategory;
   featured: boolean;
   year: number;
-  images: ProjectImage[];
   githubUrl: string | null;
   liveUrl: string | null;
   status: ProjectStatus;
@@ -22,7 +24,6 @@ export interface ProjectImage {
   alt: string;
   width: number;
   height: number;
-  type: 'hero' | 'screenshot' | 'detail';
 }
 
 export interface ProjectMetrics {
