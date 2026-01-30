@@ -49,25 +49,25 @@ export function Header() {
             className="hidden md:flex items-center gap-8"
           >
             <a
-              href="#projects"
+              href={`/${locale}#projects`}
               className="text-sm font-medium hover:text-primary transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-primary after:transition-all after:duration-300"
             >
               {t('projects')}
             </a>
             <a
-              href="#about"
+              href={`/${locale}#about`}
               className="text-sm font-medium hover:text-primary transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-primary after:transition-all after:duration-300"
             >
               {t('about')}
             </a>
             <a
-              href="#technologies"
+              href={`/${locale}#technologies`}
               className="text-sm font-medium hover:text-primary transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-primary after:transition-all after:duration-300"
             >
               {t('technologies')}
             </a>
             <a
-              href="#contact"
+              href={`/${locale}#contact`}
               className="text-sm font-medium hover:text-primary transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-primary after:transition-all after:duration-300"
             >
               {t('contact')}
