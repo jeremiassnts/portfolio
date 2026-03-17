@@ -16,7 +16,7 @@
   "projects": {
     "title": "projects",
     "repoButton": "$ repository",
-    "liveButton": "$ live demo",
+    "liveButton": "$ live_demo",
     "items": {
       "task_flow": {
         "title": "Task Flow",
@@ -35,7 +35,7 @@
   "about": {
     "title": "about me",
     "whoami": "$ whoami",
-    "description": "I am a full stack developer focused on building reliable products with clean architecture, measurable outcomes, and great collaboration across teams.",
+    "description": "I am a full-stack software engineer with over 8 years of experience developing scalable, high-performance systems. I have worked across sectors such as fintech, healthcare, and music technology, building efficient solutions for complex problems.\n\nI have strong experience with Node.js, TypeScript, React, and distributed systems architecture, and I also contribute to building SaaS platforms used by thousands of users.\n\nI value clean code, best practices, and solutions that generate real business impact, always collaborating with the team to evolve the product as a whole.",
     "availableForWork": "available for work"
   },
   "technologies": {

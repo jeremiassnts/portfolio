@@ -34,7 +34,7 @@ export function AboutSection() {
               <span>{profile.location}</span>
             </div>
 
-            <div className="mt-3 flex items-center gap-2 font-body text-sm text-foreground-secondary">
+            <div className="mt-3 flex items-center gap-2 font-body text-sm text-accent-green">
               <span
                 className="h-2.5 w-2.5 rounded-full bg-accent-green"
                 aria-hidden

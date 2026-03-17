@@ -16,7 +16,7 @@
   "projects": {
     "title": "projetos",
     "repoButton": "$ repositorio",
-    "liveButton": "$ demo online",
+    "liveButton": "$ demo_online",
     "items": {
       "task_flow": {
         "title": "Task Flow",
@@ -35,7 +35,7 @@
   "about": {
     "title": "sobre mim",
     "whoami": "$ whoami",
-    "description": "Sou um desenvolvedor full stack focado em construir produtos confiaveis com arquitetura limpa, resultados mensuraveis e boa colaboracao entre times.",
+    "description": "Sou um engenheiro de software full-stack com mais de 8 anos de experiência desenvolvendo sistemas escaláveis e de alto desempenho. Já atuei em setores como fintech, saúde e tecnologia musical, criando soluções eficientes para problemas complexos.\n\nTenho forte experiência com Node.js, TypeScript, React e arquitetura de sistemas distribuídos, além de atuar na construção de plataformas SaaS utilizadas por milhares de usuários.\n\nValorizo código limpo, boas práticas e soluções que geram impacto real no negócio, sempre colaborando com o time para evoluir o produto como um todo.",
     "availableForWork": "disponivel para trabalho"
   },
   "technologies": {
