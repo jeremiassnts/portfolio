@@ -53,7 +53,7 @@ export function LangSwitcher({
       <button
         type="button"
         onClick={toggle}
-        className="inline-flex items-center gap-1 rounded-full border border-border px-3 py-1.5 font-mono text-[12px] text-foreground-secondary transition-colors hover:text-foreground"
+        className="inline-flex items-center gap-1 rounded-md border border-border px-3 py-1.5 font-mono text-[12px] text-foreground-secondary transition-colors hover:text-foreground"
         aria-expanded={open}
         aria-haspopup="listbox"
         aria-label="Select language"

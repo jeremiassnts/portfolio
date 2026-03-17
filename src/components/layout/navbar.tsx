@@ -64,7 +64,7 @@ export function Navbar({
           className="flex items-baseline gap-1.5 font-mono text-foreground-emphasis no-underline transition-opacity hover:opacity-90"
           aria-label="Home"
         >
-          <span className="text-[20px] font-bold">&gt;</span>
+          <span className="text-[20px] font-bold text-accent-green">&gt;</span>
           <span className="text-[18px] font-medium">jeremias.dev</span>
         </Link>
         <ul className="flex list-none gap-6 p-0">
