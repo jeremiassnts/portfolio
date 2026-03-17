@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary: #0a0a0a;
+    --bg-surface: #0f0f0f;
+    --bg-active: #1f1f1f;
+    --border: #2a2a2a;
+    --text-emphasis: #ffffff;
+    --text-primary: #fafafa;
+    --text-secondary: #6b7280;
+    --text-tertiary: #4b5563;
+    --accent-green: #10b981;
+    --accent-cyan: #06b6d4;
+    --accent-amber: #f59e0b;
+    --accent-purple: #8b5cf6;
+  }
+
+  .light {
+    --bg-primary: #fafafa;
+    --bg-surface: #f5f5f5;
+    --bg-active: #e5e5e5;
+    --border: #e5e7eb;
+    --text-emphasis: #0a0a0a;
+    --text-primary: #171717;
+    --text-secondary: #6b7280;
+    --text-tertiary: #9ca3af;
+  }
+}
