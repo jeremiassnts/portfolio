@@ -6,8 +6,8 @@ import { type AppLocale } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
 
 const localeLabels: Record<AppLocale, string> = {
-  pt: "pt-br",
-  en: "en",
+  pt: "português",
+  en: "english",
 };
 
 export interface LangSwitcherProps {
