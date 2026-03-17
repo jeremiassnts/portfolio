@@ -7,11 +7,11 @@
   },
   "hero": {
     "tag": "$ // full_stack_developer",
-    "titleLine1": "construindo experiencias",
-    "titleLine2": "digitais_",
-    "description": "Eu construo produtos ponta a ponta com foco em arquitetura limpa, performance e experiencia pratica para desenvolvedores.",
-    "ctaPrimary": "$ ver projetos",
-    "ctaSecondary": "$ entrar em contato"
+    "titleLine1": "Construindo sistemas",
+    "titleLine2": "escaláveis que realmente performam",
+    "description": "Engenheiro de software full-stack com mais de 8 anos de experiência desenvolvendo plataformas SaaS de alta performance, sistemas em tempo real e soluções financeiras utilizando Node.js, React e arquiteturas cloud-native.",
+    "ctaPrimary": "$ ver_projetos",
+    "ctaSecondary": "$ entrar_em_contato"
   },
   "projects": {
     "title": "projetos",

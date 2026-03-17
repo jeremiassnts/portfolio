@@ -7,11 +7,11 @@
   },
   "hero": {
     "tag": "$ // full_stack_developer",
-    "titleLine1": "building digital",
-    "titleLine2": "experiences_",
-    "description": "I build end-to-end products focused on clean architecture, performance, and practical developer experience.",
-    "ctaPrimary": "$ view projects",
-    "ctaSecondary": "$ contact me"
+    "titleLine1": "Building scalable",
+    "titleLine2": "systems that actually perform",
+    "description": "Full-stack engineer with 8+ years of experience delivering high-performance SaaS platforms, real-time systems, and financial solutions using Node.js, React, and cloud-native architectures.",
+    "ctaPrimary": "$ view_projects",
+    "ctaSecondary": "$ contact_me"
   },
   "projects": {
     "title": "projects",
