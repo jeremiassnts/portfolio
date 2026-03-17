@@ -1,6 +1,7 @@
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
+import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
 import { Providers } from "@/components/providers";
 import { routing } from "@/i18n/routing";
@@ -32,6 +33,7 @@ export default async function LocaleLayout({
       <Providers>
         <Navbar />
         {children}
+        <Footer />
       </Providers>
     </NextIntlClientProvider>
   );

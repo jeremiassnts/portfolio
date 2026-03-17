@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="480" viewBox="0 0 480 480" fill="none">
+  <rect width="480" height="480" fill="#0F0F0F"/>
+  <rect x="24" y="24" width="432" height="432" stroke="#2A2A2A" stroke-width="2"/>
+  <circle cx="240" cy="196" r="76" fill="#1F1F1F" stroke="#10B981" stroke-width="2"/>
+  <path d="M129 365c14-56 60-92 111-92s97 36 111 92" stroke="#10B981" stroke-width="2"/>
+  <text x="240" y="430" fill="#6B7280" font-family="'JetBrains Mono', monospace" font-size="12" text-anchor="middle">
+    hero image placeholder
+  </text>
+</svg>

@@ -1,24 +1,17 @@
-import { useTranslations } from "next-intl";
-
-const sectionIds = ["projects", "about", "technologies", "contact"] as const;
+import { HeroSection } from "@/components/sections/hero-section";
+import { ProjectsSection } from "@/components/sections/projects-section";
+import { AboutSection } from "@/components/sections/about-section";
+import { TechnologiesSection } from "@/components/sections/technologies-section";
+import { ContactSection } from "@/components/sections/contact-section";
 
 export default function Home() {
-  const t = useTranslations();
-
   return (
     <main>
-      <section className="flex min-h-[60vh] items-center justify-center">
-        <p className="text-foreground-secondary">{t("hero.comingSoon")}</p>
-      </section>
-      {sectionIds.map((id) => (
-        <section
-          key={id}
-          id={id}
-          className="flex min-h-[40vh] items-center justify-center border-t border-border"
-        >
-          <p className="font-mono text-sm text-foreground-tertiary">{t(`nav.${id}`)}</p>
-        </section>
-      ))}
+      <HeroSection />
+      <ProjectsSection />
+      <AboutSection />
+      <TechnologiesSection />
+      <ContactSection />
     </main>
   );
 }

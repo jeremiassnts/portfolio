@@ -6,6 +6,58 @@
     "contact": "contato"
   },
   "hero": {
-    "comingSoon": "Heroi - em breve"
+    "tag": "$ // full_stack_developer",
+    "titleLine1": "construindo experiencias",
+    "titleLine2": "digitais_",
+    "description": "Eu construo produtos ponta a ponta com foco em arquitetura limpa, performance e experiencia pratica para desenvolvedores.",
+    "ctaPrimary": "$ ver projetos",
+    "ctaSecondary": "$ entrar em contato"
+  },
+  "projects": {
+    "title": "projetos",
+    "repoButton": "$ repositorio",
+    "liveButton": "$ demo online",
+    "items": {
+      "task_flow": {
+        "title": "Task Flow",
+        "description": "Um app de gestao de tarefas pronto para producao com visoes de quadro e linha do tempo, focado em fluxos rapidos para times de produto."
+      },
+      "api_guard": {
+        "title": "API Guard",
+        "description": "Um toolkit de seguranca e observabilidade backend com rastreamento de requisicoes, rate limiting e dashboards em tempo real."
+      },
+      "deploy_board": {
+        "title": "Deploy Board",
+        "description": "Um painel de controle de deploy para acompanhar releases, status de ambientes e pipelines de CI em um unico workspace visual."
+      }
+    }
+  },
+  "about": {
+    "title": "sobre mim",
+    "whoami": "$ whoami",
+    "description": "Sou um desenvolvedor full stack focado em construir produtos confiaveis com arquitetura limpa, resultados mensuraveis e boa colaboracao entre times.",
+    "availableForWork": "disponivel para trabalho"
+  },
+  "technologies": {
+    "title": "tecnologias",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "database": "Database",
+      "devops": "DevOps & Tools"
+    }
+  },
+  "contact": {
+    "title": "contato",
+    "description": "interessado em trabalhar junto? fique a vontade para entrar em contato por qualquer um dos canais abaixo.",
+    "location": "Localizacao",
+    "email": "Email",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "availableForWork": "disponivel para trabalho"
+  },
+  "footer": {
+    "copyright": "© 2026 jeremias santos. todos os direitos reservados.",
+    "builtWith": "feito com"
   }
 }

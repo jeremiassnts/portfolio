@@ -6,6 +6,58 @@
     "contact": "contact"
   },
   "hero": {
-    "comingSoon": "Hero - coming next"
+    "tag": "$ // full_stack_developer",
+    "titleLine1": "building digital",
+    "titleLine2": "experiences_",
+    "description": "I build end-to-end products focused on clean architecture, performance, and practical developer experience.",
+    "ctaPrimary": "$ view projects",
+    "ctaSecondary": "$ contact me"
+  },
+  "projects": {
+    "title": "projects",
+    "repoButton": "$ repository",
+    "liveButton": "$ live demo",
+    "items": {
+      "task_flow": {
+        "title": "Task Flow",
+        "description": "A production-ready task management app with board and timeline views, focused on fast workflows for product teams."
+      },
+      "api_guard": {
+        "title": "API Guard",
+        "description": "A backend security and observability toolkit with request tracing, rate limiting, and real-time API health dashboards."
+      },
+      "deploy_board": {
+        "title": "Deploy Board",
+        "description": "A deployment control panel to track releases, environment status, and CI pipelines in one visual workspace."
+      }
+    }
+  },
+  "about": {
+    "title": "about me",
+    "whoami": "$ whoami",
+    "description": "I am a full stack developer focused on building reliable products with clean architecture, measurable outcomes, and great collaboration across teams.",
+    "availableForWork": "available for work"
+  },
+  "technologies": {
+    "title": "technologies",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "database": "Database",
+      "devops": "DevOps & Tools"
+    }
+  },
+  "contact": {
+    "title": "contact",
+    "description": "interested in working together? feel free to reach out through any of the channels below.",
+    "location": "Location",
+    "email": "Email",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "availableForWork": "available for work"
+  },
+  "footer": {
+    "copyright": "© 2026 jeremias santos. all rights reserved.",
+    "builtWith": "built with"
   }
 }
