@@ -7,7 +7,7 @@ export type { CardProps } from "./card";
 export { Carousel } from "./carousel";
 export type { CarouselProps } from "./carousel";
 export { LangSwitcher } from "./lang-switcher";
-export type { LangSwitcherProps, Locale } from "./lang-switcher";
+export type { LangSwitcherProps } from "./lang-switcher";
 export { SectionHeader } from "./section-header";
 export type { SectionHeaderProps } from "./section-header";
 export { ThemeToggle } from "./theme-toggle";

@@ -1,36 +1,14 @@
 "use client";
 
-import Link from "next/link";
-import { useCallback, useState } from "react";
+import { useCallback } from "react";
+import { useLocale, useTranslations } from "next-intl";
+import { Link, usePathname, useRouter } from "@/i18n/navigation";
+import { routing, type AppLocale } from "@/i18n/routing";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
-import { LangSwitcher, type Locale } from "@/components/ui/lang-switcher";
+import { LangSwitcher } from "@/components/ui/lang-switcher";
 import { cn } from "@/lib/utils";
 
-export interface NavLabels {
-  projects: string;
-  about: string;
-  technologies: string;
-  contact: string;
-}
-
-const defaultNavLabels: NavLabels = {
-  projects: "projects",
-  about: "about",
-  technologies: "technologies",
-  contact: "contact",
-};
-
 const sectionIds = ["projects", "about", "technologies", "contact"] as const;
-
-export interface NavbarProps {
-  /** Translated nav link labels (for i18n). Defaults to English. */
-  navLabels?: Partial<NavLabels>;
-  /** Current locale for LangSwitcher. */
-  locale?: Locale;
-  /** Called when user switches locale (wire to next-intl when available). */
-  onLocaleChange?: (locale: Locale) => void;
-  className?: string;
-}
 
 /**
  * Navbar: 64px height, bottom border.
@@ -38,18 +16,27 @@ export interface NavbarProps {
  * Right: LangSwitcher + ThemeToggle.
  * Horizontal padding 40px. Nav links JetBrains Mono 400, 13px.
  */
-export function Navbar({
-  navLabels: navLabelsProp,
-  locale = "pt",
-  onLocaleChange,
-  className,
-}: NavbarProps) {
-  const navLabels = { ...defaultNavLabels, ...navLabelsProp };
+export function Navbar({ className }: { className?: string }) {
+  const t = useTranslations("nav");
+  const locale = useLocale() as AppLocale;
+  const pathname = usePathname();
+  const router = useRouter();
 
   const scrollToSection = useCallback((id: string) => {
     const el = document.getElementById(id);
     el?.scrollIntoView({ behavior: "smooth" });
   }, []);
+
+  const handleLocaleChange = useCallback(
+    (nextLocale: AppLocale) => {
+      if (!routing.locales.includes(nextLocale)) {
+        return;
+      }
+
+      router.replace(pathname, { locale: nextLocale });
+    },
+    [pathname, router]
+  );
 
   return (
     <header
@@ -60,7 +47,7 @@ export function Navbar({
     >
       <nav className="flex items-center gap-8" aria-label="Main">
         <Link
-          href="/"
+          href={{ pathname: "/" }}
           className="flex items-baseline gap-1.5 font-mono text-foreground-emphasis no-underline transition-opacity hover:opacity-90"
           aria-label="Home"
         >
@@ -75,25 +62,16 @@ export function Navbar({
                 onClick={() => scrollToSection(id)}
                 className="font-mono text-[13px] font-normal text-foreground no-underline transition-colors hover:text-foreground-emphasis"
               >
-                {navLabels[id]}
+                {t(id)}
               </button>
             </li>
           ))}
         </ul>
       </nav>
       <div className="flex items-center gap-4">
-        <LangSwitcher
-          locale={locale}
-          onLocaleChange={onLocaleChange ?? (() => {})}
-        />
+        <LangSwitcher locale={locale} onLocaleChange={handleLocaleChange} />
         <ThemeToggle />
       </div>
     </header>
   );
-}
-
-/** Client navbar with internal locale state until next-intl is wired. */
-export function NavbarWithLocale(props: Omit<NavbarProps, "locale" | "onLocaleChange">) {
-  const [locale, setLocale] = useState<Locale>("pt");
-  return <Navbar {...props} locale={locale} onLocaleChange={setLocale} />;
 }

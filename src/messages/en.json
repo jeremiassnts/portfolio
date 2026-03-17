@@ -1,0 +1,11 @@
+{
+  "nav": {
+    "projects": "projects",
+    "about": "about",
+    "technologies": "technologies",
+    "contact": "contact"
+  },
+  "hero": {
+    "comingSoon": "Hero - coming next"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "nav": {
+    "projects": "projetos",
+    "about": "sobre",
+    "technologies": "tecnologias",
+    "contact": "contato"
+  },
+  "hero": {
+    "comingSoon": "Heroi - em breve"
+  }
+}

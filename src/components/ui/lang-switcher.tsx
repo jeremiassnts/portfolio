@@ -2,18 +2,17 @@
 
 import { useCallback, useState, useRef, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
+import { type AppLocale } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
 
-export type Locale = "pt" | "en";
-
-const localeLabels: Record<Locale, string> = {
+const localeLabels: Record<AppLocale, string> = {
   pt: "pt-br",
   en: "en",
 };
 
 export interface LangSwitcherProps {
-  locale: Locale;
-  onLocaleChange: (locale: Locale) => void;
+  locale: AppLocale;
+  onLocaleChange: (locale: AppLocale) => void;
   className?: string;
 }
 
@@ -41,7 +40,7 @@ export function LangSwitcher({
 
   const toggle = useCallback(() => setOpen((o) => !o), []);
   const select = useCallback(
-    (value: Locale) => {
+    (value: AppLocale) => {
       onLocaleChange(value);
       setOpen(false);
     },
@@ -66,7 +65,7 @@ export function LangSwitcher({
           role="listbox"
           className="absolute right-0 top-full z-20 mt-1 min-w-[theme(spacing.24)] rounded border border-border bg-surface-card py-1 shadow-lg"
         >
-          {(Object.keys(localeLabels) as Locale[]).map((loc) => (
+          {(Object.keys(localeLabels) as AppLocale[]).map((loc) => (
             <li key={loc} role="option" aria-selected={locale === loc}>
               <button
                 type="button"

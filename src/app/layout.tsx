@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, JetBrains_Mono } from "next/font/google";
-import { NavbarWithLocale } from "@/components/layout/navbar";
-import { Providers } from "@/components/providers";
 import "./globals.css";
 
 const jetbrainsMono = JetBrains_Mono({
@@ -29,12 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt" className={`${jetbrainsMono.variable} ${ibmPlexMono.variable}`} suppressHydrationWarning>
-      <body className="min-h-screen bg-surface text-foreground font-body antialiased">
-        <Providers>
-          <NavbarWithLocale />
-          {children}
-        </Providers>
-      </body>
+      <body className="min-h-screen bg-surface text-foreground font-body antialiased">{children}</body>
     </html>
   );
 }
