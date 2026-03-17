@@ -358,6 +358,17 @@ theme: {
 
 This allows usage like `bg-surface`, `bg-surface-card`, `text-foreground`, `text-foreground-emphasis`, `text-accent-green`, `border-border`, `font-mono`, `font-body`.
 
+## Code Language Convention
+
+All code must be written in English:
+- Variable names, function names, type names, constants
+- Code comments
+- Documentation (README, AGENTS.md, specs)
+- Git commit messages
+- File and directory names
+
+Only the i18n message files (`messages/pt.json`) contain Portuguese content. Everything else is English.
+
 ## What This Spec Does Not Cover
 
 - SEO/metadata (robots.txt, sitemap, Open Graph) — will be added after core implementation
