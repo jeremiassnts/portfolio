@@ -60,7 +60,7 @@ export function Navbar({ className }: { className?: string }) {
               <button
                 type="button"
                 onClick={() => scrollToSection(id)}
-                className="font-mono text-[13px] font-normal text-foreground no-underline transition-colors hover:text-foreground-emphasis"
+                className="font-mono text-[13px] font-normal text-foreground no-underline transition-colors hover:text-accent-green"
               >
                 {t(id)}
               </button>
