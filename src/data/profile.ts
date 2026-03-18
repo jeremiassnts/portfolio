@@ -4,7 +4,7 @@ export const profile = {
   location: "Brazil",
   availableForWork: true,
   heroImage: "/images/profile/hero-placeholder.svg",
-  aboutImage: "/images/profile/about-placeholder.svg",
+  aboutImage: "/images/profile/profile_picture.webp",
   contacts: [
     {
       type: "location",
