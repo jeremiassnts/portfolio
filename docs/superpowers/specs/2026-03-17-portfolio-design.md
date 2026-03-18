@@ -2,7 +2,7 @@
 
 ## Overview
 
-A single-page developer portfolio for Jeremias Santos with a terminal/developer aesthetic. Built as a static Next.js 16 app with i18n support (English + Portuguese) and dark/light theming.
+A single-page developer portfolio for Jeremias Santos with a terminal/developer aesthetic. Built as a static Next.js 16 app with i18n support (English + Portuguese), dark/light theming, and responsive mobile-first section behavior.
 
 ## Stack
 
@@ -21,6 +21,7 @@ A single-page developer portfolio for Jeremias Santos with a terminal/developer 
 portfolio/
 ├── src/
 │   ├── app/
+│   │   ├── globals.css             # CSS variables, Tailwind imports
 │   │   └── [locale]/
 │   │       ├── layout.tsx          # Root layout (fonts, theme, i18n)
 │   │       └── page.tsx            # Composes all sections
@@ -36,8 +37,10 @@ portfolio/
 │   │   ├── sections/               # Page sections
 │   │   │   ├── hero-section.tsx
 │   │   │   ├── projects-section.tsx
+│   │   │   ├── project-card.tsx
 │   │   │   ├── about-section.tsx
 │   │   │   ├── technologies-section.tsx
+│   │   │   ├── technology-card.tsx
 │   │   │   └── contact-section.tsx
 │   │   ├── layout/                 # Navbar, Footer
 │   │   │   ├── navbar.tsx
@@ -47,8 +50,6 @@ portfolio/
 │   │   ├── profile.ts              # Profile info + social/contact channels
 │   │   ├── projects.ts
 │   │   └── technologies.ts
-│   ├── styles/
-│   │   └── globals.css             # CSS variables, Tailwind imports
 │   ├── i18n/
 │   │   ├── routing.ts              # next-intl locale/routing config
 │   │   └── request.ts              # next-intl server request config
@@ -94,6 +95,7 @@ export default async function LocaleLayout({ children, params }) {
   setRequestLocale(locale);
   const messages = (await import(`@/messages/${locale}.json`)).default;
   // wrap children with NextIntlClientProvider + ThemeProvider
+  // navbar is fixed and page content uses pt-16 to avoid overlap
 }
 ```
 
@@ -171,7 +173,7 @@ Padding: 12px 24px (hero CTAs), 8px 16px (card buttons).
 
 Border-only container. Padding: 4px 10px (project badges), 6px 12px (tech section badges).
 
-Badge text is always `--accent-green` by default. The `color` prop is only used for the technology category card headers (icon + title), not for individual badge text. All badge text across the site uses green.
+Badge text is `--accent-green` by default. Components can override color via `className`; technology cards apply category accent colors (green/cyan/amber/purple) to their badges.
 
 ### Card
 
@@ -201,7 +203,7 @@ Segmented control with three buttons: dark / light / system.
 
 ### LangSwitcher (client component)
 
-Bordered pill showing current locale (`pt-br` / `en`).
+Bordered pill showing current locale (`português` / `english`).
 - Dropdown or toggle to switch
 - JetBrains Mono 12px, `--text-secondary`
 
@@ -210,71 +212,73 @@ Bordered pill showing current locale (`pt-br` / `en`).
 ### Navbar
 
 - **Height**: 64px, bottom border
-- **Left**: Logo (`> jeremias.dev`) + nav links (projects, about, technologies, contact)
-- **Right**: LangSwitcher + ThemeToggle
-- **Horizontal padding**: 40px
+- **Position**: fixed top bar (`top: 0`) with content offset (`pt-16`) in layout
+- **Desktop (`md+`)**:
+  - **Left**: Logo (`> jeremias.dev`) + nav links (projects, about, technologies, contact)
+  - **Right**: LangSwitcher + ThemeToggle (dark/light/system)
+- **Mobile (`<md`)**:
+  - **Left**: Logo only
+  - **Right**: Menu icon button
+  - **Menu panel**: section links, locale buttons, and light/dark theme actions
 - **Nav links**: scroll to section anchors
 
 ### Hero Section
 
-- **Layout**: Horizontal, left content + right image, vertically centered
-- **Left**: Tag (`$ // full_stack_developer`), title ("building digital" + green "experiences_"), description, two CTAs
-- **Right**: 480x480 profile image with border
-- **Padding**: 0 80px (note: intentionally wider than navbar's 40px — hero content is more inset)
-- **Gap**: 60px between left and right
+- **Desktop (`lg+`)**: horizontal, text left + image right, gap 60px
+- **Mobile**: vertical flow in this order: image -> text -> CTA buttons
+- **Image**: responsive sizes (mobile up to desktop 480x480), bordered
+- **Content**: tag (`$ // full_stack_developer`), translated two-line title, description, primary + ghost CTA
+- **Section spacing**: responsive horizontal/vertical paddings
 
 ### Projects Section
 
-- **Padding**: 80px
+- **Padding**: responsive (`px-4` -> `lg:px-20`, `py-14` -> `lg:py-20`)
 - **Content width**: 960px centered
 - **Header**: SectionHeader with "projects"
-- **Cards**: 3 project cards, 960px wide, 320px tall
-  - Card 1: carousel left, info right
-  - Card 2: info left, carousel right (alternating)
-  - Card 3: carousel left, info right
+- **Cards**: rendered via dedicated `ProjectCard` component
+- **Desktop card layout**: alternating horizontal arrangement (carousel/info)
+- **Mobile card layout**: vertical flow per card: carousel -> text -> tech stack (wrap) -> buttons
 - **Card info**: Index `[01]`, title, description, tech badges, repo + live demo buttons
-- **Gap between cards**: 40px
+- **Gap between cards**: responsive (`space-y-8`/`space-y-10`)
 
 ### About Section
 
-- **Padding**: 80px
+- **Padding**: responsive (`px-4` -> `lg:px-20`, `py-14` -> `lg:py-20`)
 - **Content width**: 960px centered
 - **Header**: SectionHeader with "about me"
-- **Layout**: Horizontal, left text + right image
+- **Desktop (`lg+`)**: horizontal, text left + image right (gap 60px)
+- **Mobile**: vertical flow in this order: image -> text
 - **Left**: `$ whoami` label, name "Jeremias Santos" (36px), role "Full Stack Developer", bio paragraph, location (map-pin icon + "Brazil"), availability (green dot + "available for work")
-- **Right**: 380x420 image with border
-- **Gap**: 60px
+- **Right**: responsive bordered image (up to 380x420 on desktop)
 
 ### Technologies Section
 
-- **Padding**: 80px
+- **Padding**: responsive (`px-4` -> `lg:px-20`, `py-14` -> `lg:py-20`)
 - **Content width**: 960px centered
 - **Header**: SectionHeader with "technologies"
-- **Grid**: 2x2, gap 24px
-- **Cards**: Each has icon + category title + wrapped badges
-  - Frontend (monitor icon, green): react, next.js, typescript, tailwind css, html5, css3
-  - Backend (server icon, cyan): node.js, express, nestjs
-  - Database (database icon, amber): postgresql, mongodb, redis, prisma
-  - DevOps & Tools (terminal icon, purple): docker, git, github actions, vercel, linux
+- **Grid**: 1 column on mobile, 2 columns on `md+`
+- **Cards**: rendered via dedicated `TechnologyCard` component
+- **Card content**: category icon + translated category title + wrapped tech badges with category accent color
+- **Data source**: category/item values come directly from `src/data/technologies.ts`
 
 ### Contact Section
 
-- **Padding**: 80px
+- **Padding**: responsive (`px-4` -> `lg:px-20`, `py-14` -> `lg:py-20`)
 - **Content width**: 960px centered
 - **Header**: SectionHeader with "contact"
 - **Description**: "interested in working together? feel free to reach out through any of the channels below." (max-width 600px)
-- **Cards**: 4 contact cards in horizontal row, gap 24px
-  - Location (map-pin, green): "Brazil"
-  - Email (mail, cyan): "hello@jeremias.dev"
-  - GitHub (github, amber): "@jeremiassantos"
-  - LinkedIn (linkedin, purple): "/in/jeremiassantos"
+- **Layout order**: text block first, links grid after
+- **Cards grid**: 1 column on mobile, 2 columns on `sm`, 4 columns on `lg`
+- **Contact values**: rendered from `profile.contacts` data
 - **Availability**: green dot + "available for work"
 
 ### Footer
 
-- **Layout**: Horizontal, space-between
-- **Left**: `© 2026 jeremias santos. all rights reserved.`
-- **Right**: `built with` + `next.js` badge (green) + `&` + `typescript` badge (cyan)
+- **Padding**: responsive (`px-4` -> `lg:px-20`)
+- **Layout**: centered and vertical text flow
+- **Content**:
+  - `© 2026 jeremias santos. ...`
+  - `built with` + `next.js` badge + `&` + `typescript` badge
 
 ## Data Files
 
@@ -288,13 +292,13 @@ export const profile = {
   role: "Full Stack Developer",
   location: "Brazil",
   availableForWork: true,
-  heroImage: "/images/profile/hero.webp",
-  aboutImage: "/images/profile/about.webp",
+  heroImage: "/images/profile/hero-placeholder.svg",
+  aboutImage: "/images/profile/about-placeholder.svg",
   contacts: [
     { type: "location", icon: "map-pin", accentColor: "green", value: "Brazil", href: null },
-    { type: "email", icon: "mail", accentColor: "cyan", value: "hello@jeremias.dev", href: "mailto:hello@jeremias.dev" },
-    { type: "github", icon: "github", accentColor: "amber", value: "@jeremiassantos", href: "https://github.com/jeremiassantos" },
-    { type: "linkedin", icon: "linkedin", accentColor: "purple", value: "/in/jeremiassantos", href: "https://linkedin.com/in/jeremiassantos" },
+    { type: "email", icon: "mail", accentColor: "cyan", value: "jeremiassnts3@gmail.com", href: "mailto:jeremiassnts3@gmail.com" },
+    { type: "github", icon: "github", accentColor: "amber", value: "jeremiassnts", href: "https://github.com/jeremiassnts" },
+    { type: "linkedin", icon: "linkedin", accentColor: "purple", value: "in/jeremias-santos-b98674119", href: "https://linkedin.com/in/jeremias-santos-b98674119" },
   ],
 };
 ```
@@ -305,7 +309,7 @@ Array of project objects with: `slug`, `images: string[]`, `techStack: string[]`
 
 ### `src/data/technologies.ts`
 
-Array of category objects with: `category`, `icon` (lucide name), `accentColor`, `items: string[]`. Technology names (react, next.js, etc.) are proper nouns and stay as plain strings — they are not translated. Category names (frontend, backend, etc.) are also used as-is in both languages since they are universal developer terms.
+Array of category objects with: `category`, `icon` (lucide name), `accentColor`, `items: string[]`. Technology names (react, next.js, etc.) are proper nouns and stay as plain strings. Category labels are rendered via i18n keys in `messages/*.json` (`technologies.categories.*`).
 
 ## i18n Message Structure
 
@@ -315,7 +319,7 @@ Array of category objects with: `category`, `icon` (lucide name), `accentColor`,
   "hero": { "tag": "...", "titleLine1": "...", "titleLine2": "...", "description": "...", "ctaPrimary": "...", "ctaSecondary": "..." },
   "projects": { "title": "...", "items": { "task_flow": { "title": "...", "description": "..." }, ... } },
   "about": { "title": "...", "whoami": "...", "description": "...", "availableForWork": "..." },
-  "technologies": { "title": "..." },
+  "technologies": { "title": "...", "categories": { "frontend": "...", "backend": "...", "database": "...", "devops": "..." } },
   "contact": { "title": "...", "description": "...", "location": "...", "email": "...", "github": "...", "linkedin": "..." },
   "footer": { "copyright": "...", "builtWith": "..." }
 }
@@ -373,5 +377,4 @@ Only the i18n message files (`messages/pt.json`) contain Portuguese content. Eve
 
 - SEO/metadata (robots.txt, sitemap, Open Graph) — will be added after core implementation
 - Animations/transitions — can be layered on later
-- Responsive/mobile layout — will follow naturally from Tailwind but not detailed here
 - Actual project content (real project data) — placeholder data first

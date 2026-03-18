@@ -1,24 +1,60 @@
-# Portfolio
+# Jeremias Santos Portfolio
 
-Developer portfolio (Next.js, TypeScript, Tailwind). Design spec: [docs/superpowers/specs/2026-03-17-portfolio-design.md](docs/superpowers/specs/2026-03-17-portfolio-design.md).
+A personal portfolio focused on performance, i18n, and a terminal/developer visual style.
 
-## Setup
+- Production: [https://jeremiassnts.vercel.app/](https://jeremiassnts.vercel.app/)
+- Design spec: [docs/superpowers/specs/2026-03-17-portfolio-design.md](docs/superpowers/specs/2026-03-17-portfolio-design.md)
 
-- **Node**: 20.9+
-- **Package manager**: pnpm
+## Overview
+
+Single-page application with:
+
+- section-based navigation (`projects`, `about`, `technologies`, `contact`)
+- language support (`pt` and `en`)
+- light/dark theme
+- responsive layout (mobile-first behavior across main sections)
+
+## Stack
+
+- Next.js 16 (App Router, SSG)
+- TypeScript
+- Tailwind CSS
+- next-intl (i18n)
+- next-themes (theming)
+- Lucide React (icons)
+- pnpm
+
+## Requirements
+
+- Node.js 20.9+ (latest LTS recommended)
+- pnpm installed globally
+
+## Running locally
 
 ```bash
 pnpm install
 pnpm dev
 ```
 
-- Dev: [http://localhost:3000](http://localhost:3000)
-- Build: `pnpm build`
-- Start (production): `pnpm start`
+Open: [http://localhost:3000](http://localhost:3000)
 
-## Stack (target per spec)
+## Useful scripts
 
-- Next.js (App Router, SSG)
-- TypeScript
-- Tailwind CSS
-- next-intl (i18n), next-themes, Lucide React — to be added in next phases
+- `pnpm dev` - start local development server
+- `pnpm build` - create production build
+- `pnpm start` - run production build
+- `pnpm lint` - run linter
+- `pnpm tsc --noEmit` - run TypeScript type-checking
+
+## Main structure
+
+```text
+src/
+  app/[locale]/         # Locale layout and main page
+  components/layout/    # Navbar and Footer
+  components/sections/  # Landing page sections
+  components/ui/        # UI primitives
+  data/                 # Static content (projects, technologies, profile)
+  i18n/                 # Locale routing and request config
+  messages/             # Translations (pt/en)
+```
