@@ -8,17 +8,17 @@ export function AboutSection() {
   const t = useTranslations("about");
 
   return (
-    <section id="about" className="px-20 py-20">
+    <section id="about" className="px-4 py-14 sm:px-6 sm:py-16 md:px-10 lg:px-20 lg:py-20">
       <div className="mx-auto w-full max-w-[960px]">
         <SectionHeader title={t("title")} />
 
-        <div className="mt-10 flex items-center justify-between gap-[60px]">
-          <div className="min-w-0 flex-1">
+        <div className="mt-8 flex flex-col gap-8 sm:mt-10 lg:flex-row lg:items-center lg:justify-between lg:gap-[60px]">
+          <div className="order-2 min-w-0 flex-1 lg:order-1">
             <p className="font-mono text-sm font-medium text-accent-green">
               {t("whoami")}
             </p>
 
-            <h2 className="mt-4 font-mono text-[36px] font-bold leading-tight text-foreground-emphasis">
+            <h2 className="mt-3 font-mono text-[30px] font-bold leading-tight text-foreground-emphasis sm:mt-4 sm:text-[36px]">
               {profile.name}
             </h2>
             <p className="mt-2 font-mono text-[15px] text-foreground-secondary">
@@ -43,12 +43,12 @@ export function AboutSection() {
             </div>
           </div>
 
-          <div className="relative h-[420px] w-[380px] shrink-0 border border-border">
+          <div className="order-1 relative h-[280px] w-full max-w-[320px] shrink-0 border border-border sm:h-[360px] sm:max-w-[380px] lg:order-2 lg:h-[420px] lg:w-[380px] lg:max-w-none">
             <Image
               src={profile.aboutImage}
               alt={profile.name}
               fill
-              sizes="380px"
+              sizes="(max-width: 1024px) 100vw, 380px"
               className="object-cover"
             />
           </div>
