@@ -1,0 +1,63 @@
+{
+  "nav": {
+    "projects": "projetos",
+    "about": "sobre",
+    "technologies": "tecnologias",
+    "contact": "contato"
+  },
+  "hero": {
+    "tag": "$ // full_stack_developer",
+    "titleLine1": "Construindo sistemas",
+    "titleLine2": "escaláveis que realmente performam",
+    "description": "Engenheiro de software full-stack com mais de 8 anos de experiência desenvolvendo plataformas SaaS de alta performance, sistemas em tempo real e soluções financeiras utilizando Node.js, React e arquiteturas cloud-native.",
+    "ctaPrimary": "$ ver_projetos",
+    "ctaSecondary": "$ entrar_em_contato"
+  },
+  "projects": {
+    "title": "projetos",
+    "repoButton": "$ repositório",
+    "liveButton": "$ demo_online",
+    "items": {
+      "tatame": {
+        "title": "Tatame",
+        "description": "Aplicação fullstack para gerenciamento de academias de jiu-jitsu, com app mobile em React Native e Expo, backend em Node.js + Express e banco PostgreSQL."
+      },
+      "lofi_focus": {
+        "title": "Lo-fi Focus",
+        "description": "App de foco para estudo e concentração com timer Pomodoro, lista de tarefas e player de música lo-fi."
+      },
+      "devroast": {
+        "title": "DevRoast",
+        "description": "App em Next.js com TypeScript e Tailwind que recebe código do usuário e faz uma análise com IA, trazendo insights de forma humorada, críticas técnicas e sugestões de melhoria."
+      }
+    }
+  },
+  "about": {
+    "title": "sobre mim",
+    "whoami": "$ whoami",
+    "description": "Sou um engenheiro de software full-stack com mais de 8 anos de experiência desenvolvendo sistemas escaláveis e de alto desempenho. Já atuei em setores como fintech, saúde e tecnologia musical, criando soluções eficientes para problemas complexos.\n\nTenho forte experiência com Node.js, TypeScript, React e arquitetura de sistemas distribuídos, além de atuar na construção de plataformas SaaS utilizadas por milhares de usuários.\n\nValorizo código limpo, boas práticas e soluções que geram impacto real no negócio, sempre colaborando com o time para evoluir o produto como um todo.",
+    "availableForWork": "disponível para trabalho"
+  },
+  "technologies": {
+    "title": "tecnologias",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "database": "Database",
+      "devops": "DevOps & Tools"
+    }
+  },
+  "contact": {
+    "title": "contato",
+    "description": "interessado em trabalhar junto? fique à vontade para entrar em contato por qualquer um dos canais abaixo.",
+    "location": "Localização",
+    "email": "Email",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "availableForWork": "disponível para trabalho"
+  },
+  "footer": {
+    "copyright": "© 2026 jeremias santos. todos os direitos reservados.",
+    "builtWith": "feito com"
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "nav": {
+    "projects": "projects",
+    "about": "about",
+    "technologies": "technologies",
+    "contact": "contact"
+  },
+  "hero": {
+    "tag": "$ // full_stack_developer",
+    "titleLine1": "Building scalable",
+    "titleLine2": "systems that actually perform",
+    "description": "Full-stack engineer with 8+ years of experience delivering high-performance SaaS platforms, real-time systems, and financial solutions using Node.js, React, and cloud-native architectures.",
+    "ctaPrimary": "$ view_projects",
+    "ctaSecondary": "$ contact_me"
+  },
+  "projects": {
+    "title": "projects",
+    "repoButton": "$ repository",
+    "liveButton": "$ live_demo",
+    "items": {
+      "tatame": {
+        "title": "Tatame",
+        "description": "A fullstack app for managing jiu-jitsu gyms, with a React Native + Expo mobile client, Node.js + Express backend, and PostgreSQL database."
+      },
+      "lofi_focus": {
+        "title": "Lo-fi Focus",
+        "description": "A study and focus app with a Pomodoro timer, task list, and lo-fi music player."
+      },
+      "devroast": {
+        "title": "DevRoast",
+        "description": "A Next.js app built with TypeScript and Tailwind that analyzes user-submitted code with AI, delivering humorous feedback, technical critiques, and improvement suggestions."
+      }
+    }
+  },
+  "about": {
+    "title": "about me",
+    "whoami": "$ whoami",
+    "description": "I am a full-stack software engineer with over 8 years of experience developing scalable, high-performance systems. I have worked across sectors such as fintech, healthcare, and music technology, building efficient solutions for complex problems.\n\nI have strong experience with Node.js, TypeScript, React, and distributed systems architecture, and I also contribute to building SaaS platforms used by thousands of users.\n\nI value clean code, best practices, and solutions that generate real business impact, always collaborating with the team to evolve the product as a whole.",
+    "availableForWork": "available for work"
+  },
+  "technologies": {
+    "title": "technologies",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "database": "Database",
+      "devops": "DevOps & Tools"
+    }
+  },
+  "contact": {
+    "title": "contact",
+    "description": "interested in working together? feel free to reach out through any of the channels below.",
+    "location": "Location",
+    "email": "Email",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "availableForWork": "available for work"
+  },
+  "footer": {
+    "copyright": "© 2026 jeremias santos. all rights reserved.",
+    "builtWith": "built with"
+  }
+}
