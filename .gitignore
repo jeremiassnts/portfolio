@@ -21,6 +21,7 @@ pnpm-debug.log*
 
 # types
 next-env.d.ts
+tsconfig.tsbuildinfo
 
 # ide
 .idea
