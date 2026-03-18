@@ -22,11 +22,11 @@ export function ProjectCard({
   liveLabel,
 }: ProjectCardProps) {
   return (
-    <Card className="overflow-hidden bg-surface lg:h-[320px]">
+    <Card className="overflow-hidden bg-surface lg:min-h-[320px]">
       <div
         className={cn(
-          "flex h-full flex-col",
-          index % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"
+          "flex flex-col",
+          index % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row",
         )}
       >
         <Carousel
@@ -37,7 +37,7 @@ export function ProjectCard({
           className="shrink-0 rounded-none border-0 !h-[220px] !w-full sm:!h-[260px] lg:!h-[320px] lg:!w-[420px]"
         />
 
-        <div className="flex min-w-0 flex-1 flex-col p-4 sm:p-6 lg:justify-between lg:p-8">
+        <div className="flex min-w-0 flex-1 flex-col p-4 sm:p-6 lg:p-8">
           <div>
             <p className="font-mono text-[13px] text-accent-green">
               [{String(index + 1).padStart(2, "0")}]
@@ -50,13 +50,13 @@ export function ProjectCard({
             </p>
           </div>
 
-          <div className="mt-4 flex flex-wrap gap-2 sm:mt-5">
+          <div className="my-4 flex flex-wrap gap-2 sm:mt-5">
             {project.techStack.map((tech) => (
               <Badge key={tech}>{tech}</Badge>
             ))}
           </div>
 
-          <div className="mt-4 flex flex-col gap-2 sm:mt-5 sm:flex-row sm:items-center sm:gap-3">
+          <div className="flex flex-col gap-2 sm:mt-5 sm:flex-row sm:items-center sm:gap-3 lg:mt-auto">
             <a
               href={project.repoUrl}
               target="_blank"
