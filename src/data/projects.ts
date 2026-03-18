@@ -1,40 +1,54 @@
 export interface ProjectItem {
-  slug: "task_flow" | "api_guard" | "deploy_board";
+  slug: "tatame" | "lofi_focus" | "devroast";
   images: string[];
   techStack: string[];
   repoUrl: string;
-  liveUrl: string;
+  liveUrl?: string;
 }
 
 export const projects: ProjectItem[] = [
   {
-    slug: "task_flow",
+    slug: "tatame",
     images: [
-      "/images/projects/task-flow-1.svg",
-      "/images/projects/task-flow-2.svg",
+      "/images/projects/tatame/image1.webp",
+      "/images/projects/tatame/image2.webp",
     ],
-    techStack: ["next.js", "typescript", "tailwind css", "postgresql"],
-    repoUrl: "https://github.com/jeremiassantos/task-flow",
-    liveUrl: "https://task-flow.example.com",
+    techStack: [
+      "react native",
+      "expo",
+      "express",
+      "postgresql",
+      "node.js",
+      "typescript",
+      "clerk",
+    ],
+    repoUrl: "https://github.com/jeremiassnts/tatame",
   },
   {
-    slug: "api_guard",
+    slug: "lofi_focus",
     images: [
-      "/images/projects/api-guard-1.svg",
-      "/images/projects/api-guard-2.svg",
+      "/images/projects/lofi/image1.webp",
+      "/images/projects/lofi/image2.webp",
     ],
-    techStack: ["node.js", "nestjs", "redis", "docker"],
-    repoUrl: "https://github.com/jeremiassantos/api-guard",
-    liveUrl: "https://api-guard.example.com",
+    techStack: ["next.js", "react", "typescript", "tailwind css", "turborepo"],
+    repoUrl: "https://github.com/jeremiassnts/lofi-study-app",
+    liveUrl: "https://lofi-study-app.vercel.app/",
   },
   {
-    slug: "deploy_board",
+    slug: "devroast",
     images: [
-      "/images/projects/deploy-board-1.svg",
-      "/images/projects/deploy-board-2.svg",
+      "/images/projects/devroast/image1.webp",
+      "/images/projects/devroast/image2.webp",
+      "/images/projects/devroast/image3.webp",
     ],
-    techStack: ["react", "express", "mongodb", "github actions"],
-    repoUrl: "https://github.com/jeremiassantos/deploy-board",
-    liveUrl: "https://deploy-board.example.com",
+    techStack: [
+      "next.js",
+      "typescript",
+      "tailwind css",
+      "openai api",
+      "postgresql",
+      "trpc",
+    ],
+    repoUrl: "https://github.com/jeremiassnts/devroast",
   },
 ];

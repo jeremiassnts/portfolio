@@ -18,17 +18,17 @@
     "repoButton": "$ repository",
     "liveButton": "$ live_demo",
     "items": {
-      "task_flow": {
-        "title": "Task Flow",
-        "description": "A production-ready task management app with board and timeline views, focused on fast workflows for product teams."
+      "tatame": {
+        "title": "Tatame",
+        "description": "A fullstack app for managing jiu-jitsu gyms, with a React Native + Expo mobile client, Node.js + Express backend, and PostgreSQL database."
       },
-      "api_guard": {
-        "title": "API Guard",
-        "description": "A backend security and observability toolkit with request tracing, rate limiting, and real-time API health dashboards."
+      "lofi_focus": {
+        "title": "Lo-fi Focus",
+        "description": "A study and focus app with a Pomodoro timer, task list, and lo-fi music player."
       },
-      "deploy_board": {
-        "title": "Deploy Board",
-        "description": "A deployment control panel to track releases, environment status, and CI pipelines in one visual workspace."
+      "devroast": {
+        "title": "DevRoast",
+        "description": "A Next.js app built with TypeScript and Tailwind that analyzes user-submitted code with AI, delivering humorous feedback, technical critiques, and improvement suggestions."
       }
     }
   },

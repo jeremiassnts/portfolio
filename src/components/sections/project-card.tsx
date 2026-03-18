@@ -65,14 +65,16 @@ export function ProjectCard({
             >
               {repoLabel}
             </a>
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center justify-center rounded border border-transparent bg-accent-green px-4 py-2 font-mono text-[12px] font-medium text-surface transition-opacity hover:opacity-90"
-            >
-              {liveLabel}
-            </a>
+            {project.liveUrl ? (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center rounded border border-transparent bg-accent-green px-4 py-2 font-mono text-[12px] font-medium text-surface transition-opacity hover:opacity-90"
+              >
+                {liveLabel}
+              </a>
+            ) : null}
           </div>
         </div>
       </div>

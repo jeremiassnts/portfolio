@@ -37,7 +37,10 @@ export function Carousel({
 
   return (
     <div
-      className={cn("relative overflow-hidden rounded border border-border", className)}
+      className={cn(
+        "relative overflow-hidden rounded border border-border",
+        className,
+      )}
       style={{ width, height }}
     >
       <Image
@@ -45,7 +48,7 @@ export function Carousel({
         alt={`${alt} ${index + 1}`}
         width={width}
         height={height}
-        className="object-cover"
+        className="h-full w-full object-contain"
         unoptimized
       />
       {images.length > 1 && (
@@ -76,7 +79,7 @@ export function Carousel({
                   "rounded-full transition-colors",
                   i === index
                     ? "h-2 w-2 bg-accent-green"
-                    : "h-1.5 w-1.5 bg-foreground-tertiary"
+                    : "h-1.5 w-1.5 bg-foreground-tertiary",
                 )}
                 aria-label={`Go to image ${i + 1}`}
               />
