@@ -43,16 +43,22 @@ export function TechnologiesSection() {
         <div className="mt-10 grid grid-cols-2 gap-6">
           {technologies.map((category) => (
             <Card key={category.category} className="p-6">
-              <div
-                className={`mb-4 flex items-center gap-2 font-mono text-sm font-semibold ${colorClassByAccent[category.accentColor]}`}
-              >
-                <CategoryIcon icon={category.icon} />
-                <span>{t(`categories.${category.category}`)}</span>
+              <div className="mb-4 flex items-center gap-2 font-mono text-sm font-semibold">
+                <span className={colorClassByAccent[category.accentColor]}>
+                  <CategoryIcon icon={category.icon} />
+                </span>
+                <span className="text-foreground-emphasis">
+                  {t(`categories.${category.category}`)}
+                </span>
               </div>
 
               <div className="flex flex-wrap gap-2">
                 {category.items.map((item) => (
-                  <Badge key={item} size="lg">
+                  <Badge
+                    key={item}
+                    size="lg"
+                    className={colorClassByAccent[category.accentColor]}
+                  >
                     {item}
                   </Badge>
                 ))}

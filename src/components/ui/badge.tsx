@@ -7,7 +7,7 @@ const sizeStyles: Record<BadgeSize, string> = {
   lg: "px-3 py-1.5 text-[11px]",
 };
 
-/** Badge text is always accent-green. The color prop is for tech category headers (icon + title), not badge text. */
+/** Badge defaults to accent-green but can be overridden via className. */
 export interface BadgeProps {
   children: React.ReactNode;
   size?: BadgeSize;
