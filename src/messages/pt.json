@@ -18,6 +18,10 @@
     "repoButton": "$ repositório",
     "liveButton": "$ ver_online",
     "items": {
+      "tellin": {
+        "title": "Tellin",
+        "description": "Plataforma para criar presentes digitais interativos e personalizados, reunindo fotos, músicas, jogos e uma carta em uma experiência única compartilhável por link. Frontend em Next.js e backend em Node.js + Express com PostgreSQL, Redis e filas assíncronas com BullMQ."
+      },
       "tatame": {
         "title": "Tatame",
         "description": "Aplicação fullstack para gerenciamento de academias de jiu-jitsu, com app mobile em React Native e Expo, backend em Node.js + Express e banco PostgreSQL. Já está no ar e conta com clientes reais utilizando a plataforma."

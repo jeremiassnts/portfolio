@@ -18,6 +18,10 @@
     "repoButton": "$ repository",
     "liveButton": "$ view_online",
     "items": {
+      "tellin": {
+        "title": "Tellin",
+        "description": "A platform for creating personalized, interactive digital gifts — combining photos, music, games, and a letter into a single shareable-link experience. Next.js frontend with a Node.js + Express backend, PostgreSQL, Redis, and asynchronous job queues powered by BullMQ."
+      },
       "tatame": {
         "title": "Tatame",
         "description": "A fullstack app for managing jiu-jitsu gyms, with a React Native + Expo mobile client, Node.js + Express backend, and PostgreSQL database. It's now live in production, serving real customers."

@@ -1,5 +1,5 @@
 export interface ProjectItem {
-  slug: "tatame" | "lofi_focus" | "devroast";
+  slug: "tellin" | "tatame" | "lofi_focus" | "devroast";
   images: string[];
   techStack: string[];
   repoUrl?: string;
@@ -7,6 +7,21 @@ export interface ProjectItem {
 }
 
 export const projects: ProjectItem[] = [
+  {
+    slug: "tellin",
+    images: ["/images/projects/tellin/image1.webp"],
+    techStack: [
+      "next.js",
+      "typescript",
+      "tailwind css",
+      "express",
+      "node.js",
+      "redis",
+      "bullmq",
+      "postgresql",
+    ],
+    liveUrl: "https://apptellin.com",
+  },
   {
     slug: "tatame",
     images: ["/images/projects/tatame/image1.webp"],
