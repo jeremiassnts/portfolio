@@ -16,11 +16,11 @@
   "projects": {
     "title": "projetos",
     "repoButton": "$ repositório",
-    "liveButton": "$ demo_online",
+    "liveButton": "$ ver_online",
     "items": {
       "tatame": {
         "title": "Tatame",
-        "description": "Aplicação fullstack para gerenciamento de academias de jiu-jitsu, com app mobile em React Native e Expo, backend em Node.js + Express e banco PostgreSQL."
+        "description": "Aplicação fullstack para gerenciamento de academias de jiu-jitsu, com app mobile em React Native e Expo, backend em Node.js + Express e banco PostgreSQL. Já está no ar e conta com clientes reais utilizando a plataforma."
       },
       "lofi_focus": {
         "title": "Lo-fi Focus",

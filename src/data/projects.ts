@@ -2,17 +2,14 @@ export interface ProjectItem {
   slug: "tatame" | "lofi_focus" | "devroast";
   images: string[];
   techStack: string[];
-  repoUrl: string;
+  repoUrl?: string;
   liveUrl?: string;
 }
 
 export const projects: ProjectItem[] = [
   {
     slug: "tatame",
-    images: [
-      "/images/projects/tatame/image1.webp",
-      "/images/projects/tatame/image2.webp",
-    ],
+    images: ["/images/projects/tatame/image1.webp"],
     techStack: [
       "react native",
       "expo",
@@ -22,7 +19,7 @@ export const projects: ProjectItem[] = [
       "typescript",
       "clerk",
     ],
-    repoUrl: "https://github.com/jeremiassnts/tatame",
+    liveUrl: "https://apptatame.com.br",
   },
   {
     slug: "lofi_focus",

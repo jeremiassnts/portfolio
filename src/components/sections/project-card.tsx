@@ -57,14 +57,16 @@ export function ProjectCard({
           </div>
 
           <div className="flex flex-col gap-2 sm:mt-5 sm:flex-row sm:items-center sm:gap-3 lg:mt-auto">
-            <a
-              href={project.repoUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center justify-center rounded border border-border bg-transparent px-4 py-2 font-mono text-[12px] font-medium text-foreground transition-opacity hover:opacity-90"
-            >
-              {repoLabel}
-            </a>
+            {project.repoUrl ? (
+              <a
+                href={project.repoUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center rounded border border-border bg-transparent px-4 py-2 font-mono text-[12px] font-medium text-foreground transition-opacity hover:opacity-90"
+              >
+                {repoLabel}
+              </a>
+            ) : null}
             {project.liveUrl ? (
               <a
                 href={project.liveUrl}
